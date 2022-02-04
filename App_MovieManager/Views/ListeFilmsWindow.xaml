@@ -1,0 +1,54 @@
+﻿<Window x:Class="App_MovieManager.Views.ListeFilmsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:App_MovieManager.Views"
+        xmlns:controls="clr-namespace:App_MovieManager.Controls"
+        mc:Ignorable="d"
+        Title="ListeFilmsWindow" Height="450" Width="800" DataContext="{StaticResource MovieList}">
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="160"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <controls:NavMenu Grid.Column="0"/>
+
+        <StackPanel Grid.Column="1">
+
+            <StackPanel>
+                <TextBlock Style="{StaticResource TitrePage}" Text="Liste des films" />
+            </StackPanel>
+
+            <Border Width="200"
+                        Height="1"
+                        Background="LightGray"
+                        Opacity="0.8"
+                        Margin="-10 20 0 20 "/>
+
+            <DataGrid ItemsSource="{Binding ListeFilms}" 
+                      Margin="25 0 25 0"
+                      IsReadOnly="True"
+                      AutoGenerateColumns="False">
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID" Binding="{Binding IdFilm}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Titre" Binding="{Binding Titre}" ></DataGridTextColumn>
+                    <DataGridTextColumn Header="Année" Binding="{Binding DateSortie}"></DataGridTextColumn>
+                    <DataGridTemplateColumn Header="Détails">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button x:Name="Btn_Details" Width="60" Height="20" Content="DETAILS" FontSize="10" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+
+            </DataGrid>
+
+        </StackPanel>
+
+    </Grid>
+</Window>

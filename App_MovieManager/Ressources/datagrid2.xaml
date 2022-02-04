@@ -1,0 +1,62 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+
+    <!--  <Setter Property="" Value="" />  -->
+
+    <Style x:Key="dgTheme" TargetType="{x:Type DataGrid}">
+        <Setter Property="ColumnHeaderStyle" Value="{DynamicResource dgColumnHeaderStyle}" />
+        <Setter Property="RowStyle" Value="{DynamicResource dgRowStyle}" />
+        <Setter Property="CellStyle" Value="{DynamicResource dgCellStyle}" />
+
+        <Setter Property="Background" Value="#1c1d25" />
+        <Setter Property="Foreground" Value="#819DAD" />
+
+        <!--<Setter Property="BorderBrush" Value="Chartreuse" />-->
+        <Setter Property="BorderThickness" Value="0 0 0 0" />
+        <Setter Property="HorizontalGridLinesBrush" Value="Transparent" />
+        <Setter Property="GridLinesVisibility" Value="Horizontal" />
+        
+        <Setter Property="AlternatingRowBackground" Value="#1F295B" />
+        <Setter Property="AlternationCount" Value="2" />
+
+        <Setter Property="HeadersVisibility" Value="Column" />
+        <Setter Property="ScrollViewer.CanContentScroll" Value="True" />
+    </Style>
+
+    <!-- ColumnHeader style -->
+    <Style x:Key="dgColumnHeaderStyle" TargetType="DataGridColumnHeader">
+        <Setter Property="Height" Value="35" />
+
+        <Setter Property="Background" Value="#1c1d25" />
+        <Setter Property="Foreground" Value="WhiteSmoke" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+    </Style>
+
+    <!-- Row style -->
+    <Style x:Key="dgRowStyle" TargetType="DataGridRow">
+        <Style.Triggers>
+            <Trigger Property="AlternationIndex" Value="0">
+                <Setter Property="Background" Value="#1f222c" />
+            </Trigger>
+            <Trigger Property="AlternationIndex" Value="1">
+                <Setter Property="Background" Value="#1c1d25" />
+            </Trigger>
+            <DataTrigger Binding="{Binding Path=Selectable}" Value="False">
+                <DataTrigger.Setters>
+                    <Setter Property="Background" Value="Yellow" />
+                </DataTrigger.Setters>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <!-- Cell Style -->
+    <Style x:Key="dgCellStyle" TargetType="DataGridCell">
+        <Style.Triggers>
+            <Trigger Property="IsSelected" Value="True">
+                <Setter Property="Background" Value="Transparent"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+</ResourceDictionary>

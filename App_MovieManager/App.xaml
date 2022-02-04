@@ -1,0 +1,27 @@
+﻿<Application x:Class="App_MovieManager.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:App_MovieManager"
+             xmlns:vm="clr-namespace:App_MovieManager.ViewModels"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+
+        <ResourceDictionary>
+            <vm:LoginViewModel x:Key="Main" />
+            <vm:ListeFilmsViewModel x:Key="MovieList" />
+            <vm:ListeActeursViewModel x:Key="ActorList" />
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Ressources/ButtonTheme.xaml" />
+                <ResourceDictionary Source="Ressources/ButtonGrid.xaml" />
+                <ResourceDictionary Source="Ressources/ButtonGridDark.xaml" />
+                <ResourceDictionary Source="Ressources/NavItems.xaml" />
+                <ResourceDictionary Source="Ressources/NavItemsDark.xaml" />
+                <ResourceDictionary Source="Ressources/PageTitle.xaml" />
+                <ResourceDictionary Source="Ressources/DatagridTest.xaml" />
+                <ResourceDictionary Source="Ressources/datagrid2.xaml" />
+                <ResourceDictionary Source="Ressources/DataGridTheme.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+
+    </Application.Resources>
+</Application>
