@@ -10,39 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace App_MovieManager.Views
 {
     /// <summary>
-    /// Logique d'interaction pour ListeActeursWindow.xaml
+    /// Logique d'interaction pour Page_Acteurs.xaml
     /// </summary>
-    public partial class ListeActeursWindow : Window
+    public partial class Page_Acteurs : Page
     {
-        public ListeActeursWindow()
+        public Page_Acteurs()
         {
             InitializeComponent();
-        }
-
-        private void btnMin_Click(object sender, RoutedEventArgs e)
-        {
-            this.WindowState = WindowState.Minimized;
-        }
-
-        private void btnMax_Click(object sender, RoutedEventArgs e)
-        {
-            SystemCommands.MaximizeWindow(this);
-        }
-
-        private void btnClose_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
-
-        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.LeftButton == MouseButtonState.Pressed)
-                DragMove();
         }
 
         private void EmptyTextboxOnFocus(object sender, RoutedEventArgs e)

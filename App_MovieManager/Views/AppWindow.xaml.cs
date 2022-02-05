@@ -15,36 +15,30 @@ using System.Windows.Shapes;
 namespace App_MovieManager.Views
 {
     /// <summary>
-    /// Logique d'interaction pour ListeActeursWindow.xaml
+    /// Logique d'interaction pour AppWindow.xaml
     /// </summary>
-    public partial class ListeActeursWindow : Window
+    public partial class AppWindow : Window
     {
-        public ListeActeursWindow()
+        public AppWindow()
         {
             InitializeComponent();
         }
 
-        private void btnMin_Click(object sender, RoutedEventArgs e)
-        {
-            this.WindowState = WindowState.Minimized;
-        }
-
-        private void btnMax_Click(object sender, RoutedEventArgs e)
-        {
-            SystemCommands.MaximizeWindow(this);
-        }
-
-        private void btnClose_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
-
-        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        private void DragWindow(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
                 DragMove();
         }
 
+        private void btn_Minimize_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+
+        private void btn_Close_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
         private void EmptyTextboxOnFocus(object sender, RoutedEventArgs e)
         {
             TextBox tbox = (TextBox)sender;

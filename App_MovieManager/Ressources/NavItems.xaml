@@ -4,12 +4,12 @@
     <Style x:Key="navItem" TargetType="{x:Type Hyperlink}">
         <Setter Property="Foreground" Value="Black" />
         <Setter Property="TextDecorations" Value="None" />
-        <Setter Property="FontSize" Value="13" />
+        <Setter Property="FontSize" Value="14" />
         <Setter Property="FontFamily" Value="Helvetica" />
     </Style>
 
     <Style x:Key="navItemBlocks" TargetType="{x:Type TextBlock}">
-        <Setter Property="Margin" Value="0 4 0 4" />
+        <Setter Property="Margin" Value="4 5 0 5" />
     </Style>
 
 </ResourceDictionary>

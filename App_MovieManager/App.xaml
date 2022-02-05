@@ -12,8 +12,10 @@
             <vm:ListeActeursViewModel x:Key="ActorList" />
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Ressources/ButtonTheme.xaml" />
+                <ResourceDictionary Source="Ressources/ButtonWindowHeader.xaml" />
                 <ResourceDictionary Source="Ressources/ButtonGrid.xaml" />
                 <ResourceDictionary Source="Ressources/ButtonGridDark.xaml" />
+                <ResourceDictionary Source="Ressources/TextboxTheme.xaml" />
                 <ResourceDictionary Source="Ressources/NavItems.xaml" />
                 <ResourceDictionary Source="Ressources/NavItemsDark.xaml" />
                 <ResourceDictionary Source="Ressources/PageTitle.xaml" />

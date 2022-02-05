@@ -6,18 +6,21 @@
              xmlns:local="clr-namespace:App_MovieManager.Controls"
              xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="160">
+             d:DesignHeight="685" d:DesignWidth="165">
+    
     <Grid>
-
         <StackPanel Name="panelNavMenu" Grid.Column="0" Background="WhiteSmoke">
 
             <StackPanel Orientation="Vertical" Margin="5 0 0 0">
-                <Label Content="userNickname"  FontSize="14" FontWeight="SemiBold" HorizontalContentAlignment="Center" HorizontalAlignment="Left"/>
-                <Label Content="user@email.com"  FontSize="11" FontWeight="Regular" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="0 -10 0 0"/>
+                <Label Content="userNickname" 
+                       FontSize="16" FontWeight="SemiBold" 
+                       HorizontalContentAlignment="Center" HorizontalAlignment="Left"/>
+                <Label Content="user@email.com" 
+                       FontSize="11" FontWeight="Regular" 
+                       HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="0 -10 0 0"/>
             </StackPanel>
 
-            <StackPanel Name="optionsMenu" Margin="10 50 0 15">
-
+            <StackPanel Name="optionsMenu" Margin="12 50 0 15">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="20" />
@@ -29,9 +32,9 @@
                         <RowDefinition />
                     </Grid.RowDefinitions>
 
-                    <iconPacks:PackIconMaterial Grid.Row="0" Kind="FilmstripBoxMultiple" VerticalAlignment="Center" />
-                    <iconPacks:PackIconMaterial Grid.Row="1" Kind="MovieOpenStar" VerticalAlignment="Center" />
-                    <iconPacks:PackIconMaterial Grid.Row="2" Kind="Delete" VerticalAlignment="Center" />
+                    <iconPacks:PackIconMaterial Grid.Row="0" Kind="FilmstripBoxMultiple" Foreground="#1c73e8" VerticalAlignment="Center" />
+                    <iconPacks:PackIconMaterial Grid.Row="1" Kind="MovieOpenStar" Foreground="#1c73e8" VerticalAlignment="Center" />
+                    <iconPacks:PackIconMaterial Grid.Row="2" Kind="Delete" Foreground="#1c73e8" VerticalAlignment="Center" />
 
                     <TextBlock Grid.Row="0" Grid.Column="1" Style="{StaticResource navItemBlocks}">
                     <Hyperlink Style="{StaticResource navItem}">Ma Collection</Hyperlink>
@@ -43,7 +46,6 @@
                     <Hyperlink Style="{StaticResource navItem}">Corbeille</Hyperlink>
                     </TextBlock>
                 </Grid>
-
 
                 <Border Width="200"
                     Height="1"
@@ -63,26 +65,27 @@
                         <RowDefinition />
                     </Grid.RowDefinitions>
 
-                    <iconPacks:PackIconMaterial Grid.Row="0" Kind="MovieSearch" VerticalAlignment="Center" />
-                    <iconPacks:PackIconMaterial Grid.Row="1" Kind="AccountBox" VerticalAlignment="Center" />
-                    <iconPacks:PackIconMaterial Grid.Row="2" Kind="MoviePlus" VerticalAlignment="Center" />
-                    <iconPacks:PackIconMaterial Grid.Row="3" Kind="MovieOpenEdit" VerticalAlignment="Center" />
+                    <iconPacks:PackIconMaterial Grid.Row="0" Kind="MovieSearch" Foreground="#1c73e8" VerticalAlignment="Center" />
+                    <iconPacks:PackIconMaterial Grid.Row="1" Kind="AccountBox" Foreground="#1c73e8" VerticalAlignment="Center" />
+                    <iconPacks:PackIconMaterial Grid.Row="2" Kind="MoviePlus" Foreground="#1c73e8" VerticalAlignment="Center" />
+                    <iconPacks:PackIconMaterial Grid.Row="3" Kind="MovieOpenEdit" Foreground="#1c73e8" VerticalAlignment="Center" />
 
                     <TextBlock Grid.Row="0" Grid.Column="1" Style="{StaticResource navItemBlocks}">
-                    <Hyperlink Style="{StaticResource navItemDark}" Click="Hyperlink_Click_ViewMovies" >Voir Films</Hyperlink>
+                        <Hyperlink Style="{StaticResource navItem}" Click="Hyperlink_Click_ViewMovies">Voir Films</Hyperlink>
                     </TextBlock>
+
                     <TextBlock Grid.Row="1" Grid.Column="1" Style="{StaticResource navItemBlocks}">
-                    <Hyperlink Style="{StaticResource navItem}" Click="Hyperlink_Click_ViewActors" >Voir Acteurs</Hyperlink>
+                        <Hyperlink Style="{StaticResource navItem}" Click="Hyperlink_Click_ViewActors">Voir Acteurs</Hyperlink>
                     </TextBlock>
+
                     <TextBlock Grid.Row="2" Grid.Column="1" Style="{StaticResource navItemBlocks}">
-                    <Hyperlink Style="{StaticResource navItem}" Click="Hyperlink_Click_CreateMovie" >Créer Film</Hyperlink>
+                        <Hyperlink Style="{StaticResource navItem}" Click="Hyperlink_Click_CreateMovie">Créer Film</Hyperlink>
                     </TextBlock>
+
                     <TextBlock Grid.Row="3" Grid.Column="1" Style="{StaticResource navItemBlocks}">
-                    <Hyperlink Style="{StaticResource navItem}" Click="Hyperlink_Click_ModifyMovie" >Modifier Film</Hyperlink>
+                        <Hyperlink Style="{StaticResource navItem}" Click="Hyperlink_Click_ModifyMovie">Modifier Film</Hyperlink>
                     </TextBlock>
-
                 </Grid>
-
             </StackPanel>
             <!-- Fin stackpanel 'optionsMenu' -->
 
@@ -96,19 +99,20 @@
                         <RowDefinition />
                         <RowDefinition />
                     </Grid.RowDefinitions>
-                    <iconPacks:PackIconMaterial Kind="AccountLockOutline" VerticalAlignment="Center" Foreground="Black"/>
-                    <iconPacks:PackIconMaterial Grid.Row="1" Kind="Cog" VerticalAlignment="Center" Foreground="Black"/>
+
+                    <iconPacks:PackIconMaterial Grid.Row="0" Kind="AccountLockOutline" Foreground="#1c73e8" VerticalAlignment="Center" />
+                    <iconPacks:PackIconMaterial Grid.Row="1" Kind="Cog" Foreground="#1c73e8" VerticalAlignment="Center" />
+                    
                     <TextBlock Grid.Row="0" Grid.Column="1" Style="{StaticResource navItemBlocks}">
-                    <Hyperlink Style="{StaticResource navItem}">Se déconnecter</Hyperlink>
+                        <Hyperlink Style="{StaticResource navItem}">Se déconnecter</Hyperlink>
                     </TextBlock>
                     <TextBlock Grid.Row="1" Grid.Column="1" Style="{StaticResource navItemBlocks}">
-                    <Hyperlink Style="{StaticResource navItem}">Paramètres</Hyperlink>
+                        <Hyperlink Style="{StaticResource navItem}">Paramètres</Hyperlink>
                     </TextBlock>
                 </Grid>
             </StackPanel>
 
         </StackPanel>
         <!-- Fin stackpanel 'panelNavMenu' -->
-
     </Grid>
 </UserControl>

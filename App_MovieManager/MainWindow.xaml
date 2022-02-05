@@ -6,17 +6,19 @@
         xmlns:local="clr-namespace:App_MovieManager"
         xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="380" DataContext="{StaticResource Main}">
+        Title="MainWindow" Height="450" Width="340" DataContext="{StaticResource Main}"
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen" 
+        WindowStyle="None">
+        
     <Grid>
-
-        <Border Grid.ColumnSpan="2">
-            <!-- CornerRadius="10"-->
+        <Border Grid.ColumnSpan="2"><!--Background="#1c73e8"-->
+            <!--CornerRadius="10"-->
             <Border.Background>
                 <LinearGradientBrush>
-                    <GradientStop Color="#7be9f6" Offset="0.0" />
-                    <!-- #7be9f6 -->
-                    <GradientStop Color="#f083da" Offset="1" />
-                    <!-- #f083da -->
+                <GradientStop Color="#1c73e8" Offset="0.0" />
+                <!-- #7be9f6 -->
+                <GradientStop Color="#f083da" Offset="1" />
+                <!-- #f083da -->           
                 </LinearGradientBrush>
             </Border.Background>
         </Border>
@@ -24,26 +26,37 @@
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*" />
-                <RowDefinition Height="6*"/>
+                <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
 
 
-
-            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,0">
-                <TextBlock Text="Connexion" 
+            <StackPanel Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,0">
+                <!-- LOGO -->
+                <iconPacks:PackIconMaterial Kind="MovieOpenSettingsOutline"  
+                                            Foreground="White"
+                                            Width="80" Height="80" 
+                                            VerticalAlignment="Center" 
+                                            HorizontalAlignment="Center"
+                                            Margin="0 0 0 20"/>
+                <!-- WELCOME TXT -->
+                <TextBlock Text="Bienvenue" 
                            FontWeight="Light" 
                            FontFamily="Helvetica"
                            FontSize="28"
-                           Foreground="White"/>
+                           Foreground="White"
+                           HorizontalAlignment="Center"
+                           Margin="0 0 0 0"/>
+                <TextBlock Text="Connectez-vous à votre compte" 
+                           FontWeight="Light" 
+                           FontFamily="Helvetica"
+                           FontSize="14"
+                           Foreground="White"
+                           HorizontalAlignment="Center"
+                           Margin="0 0 0 0"/>
             </StackPanel>
 
-
+            <!-- LOGIN EMAIL -->
             <StackPanel Grid.Row="1">
-
-                <StackPanel Margin="0,30,0,50">
-                    <iconPacks:PackIconMaterial Kind="MovieOpenSettingsOutline"  Foreground="White" Width="60" Height="60" VerticalAlignment="Center" HorizontalAlignment="Center" />
-                </StackPanel>
-                
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
                     <TextBox FontFamily="Helvetica"
                              x:Name="emailTextbox"
@@ -58,37 +71,17 @@
                              HorizontalContentAlignment="Left"
                              Opacity="0.5"
                              Height="25"
-                             Margin="60,0,0,0"/>
-                    <iconPacks:PackIconMaterial Kind="Email"  Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,0" />
-                </StackPanel>
-                <Border Width="230"
-                        Height="2"
-                        Background="White"
-                        Opacity="0.5" />
-
-
-                <!--<StackPanel Orientation="Horizontal" Margin="0,20,0,0">
-                    <TextBox FontFamily="Helvetica"
-                             FontWeight="Light"
-                             Text="{Binding Passwd}"
-                             FontSize="20"
-                             HorizontalAlignment="Center"
-                             Foreground="White"
-                             Background="Transparent"
-                             BorderThickness="0"
-                             Width="225"
-                             HorizontalContentAlignment="Left"
-                             Opacity="0.5"
-                             Height="25"
-                             Margin="60,0,0,0"/>
-                    <iconPacks:PackIconMaterial Kind="Lock"  Foreground="White"/>
+                             Margin="48 0 0 0"/>
+                    <iconPacks:PackIconMaterial Kind="Account" Foreground="White" Height="20" Width="20"
+                                                VerticalAlignment="Center" HorizontalAlignment="Center" 
+                                                Margin="0 0 0 4" />
                 </StackPanel>
                 <Border Width="250"
                         Height="2"
                         Background="White"
-                        Opacity="0.5"/>-->
+                        Opacity="0.5" />
 
-
+                <!-- PASSWORD -->
                 <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
                     <PasswordBox Name="passwdboxLogin"
                                  FontFamily="Helvetica"
@@ -102,30 +95,31 @@
                                  HorizontalContentAlignment="Left"
                                  Opacity="0.5"
                                  Height="25"
-                                 Margin="60,0,0,0"
+                                 Margin="48 0 0 0"
                                  PasswordChanged="PasswordBox_PasswordChanged" />
-                    <iconPacks:PackIconMaterial Kind="Lock"  Foreground="White"/>
+                    <iconPacks:PackIconMaterial Kind="Lock"  Foreground="White" Height="20" Width="20"
+                                                VerticalAlignment="Center" HorizontalAlignment="Center" 
+                                                Margin="0 0 0 4"/>
                 </StackPanel>
-                <Border Width="230"
+                <Border Width="250"
                         Height="2"
                         Background="White"
                         Opacity="0.5"/>
 
-
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,50,0,0">
+                <!-- CONNEXION BTN -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,40,0,0">
                     <Button Style="{StaticResource ModernButton}" Command="{Binding SignInCommand}" Width="100" Height="40" Content="SE CONNECTER" />
                 </StackPanel>
 
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,15,0,0">
-
+                <!-- CREATE ACCOUNT -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,25,0,0">
                     <TextBlock>
-                        <Hyperlink>Créer un nouveau compte</Hyperlink>
+                            <Hyperlink Foreground="WhiteSmoke">Créer un nouveau compte</Hyperlink>
                     </TextBlock>
                 </StackPanel>
             </StackPanel>
-
-
         </Grid>
-        
+            
     </Grid>
+        
 </Window>

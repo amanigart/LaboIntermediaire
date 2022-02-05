@@ -28,7 +28,6 @@ namespace App_MovieManager.ViewModels
         private string _duree;
         private ObservableCollection<Film> _listeFilms;
 
-
         public ObservableCollection<Film> ListeFilms
         {
             get { return _listeFilms; }

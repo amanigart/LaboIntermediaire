@@ -27,7 +27,7 @@
     <Style x:Key="dgColumnHeaderStyleTheme" TargetType="DataGridColumnHeader">
         <Setter Property="Height" Value="35" />
 
-        <Setter Property="Background" Value="#1c73e8" />
+        <Setter Property="Background" Value="#bdbdbd" />
         <Setter Property="Foreground" Value="White" />
         <Setter Property="FontWeight" Value="SemiBold" />
     </Style>

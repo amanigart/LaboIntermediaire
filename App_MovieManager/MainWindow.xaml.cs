@@ -1,4 +1,5 @@
-﻿using App_MovieManager.ViewModels;
+﻿using App_MovieManager.Tools;
+using App_MovieManager.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,13 +25,19 @@ namespace App_MovieManager
         public MainWindow()
         {
             InitializeComponent();
+            Loaded += MainWindow_Loaded;
         }
 
         private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
         {
             if (this.DataContext != null)
-            { ((dynamic)this.DataContext).Passwd = ((PasswordBox)sender).Password; }
+                ((dynamic)this.DataContext).Passwd = ((PasswordBox)sender).Password; 
         }
-
+       
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is ICloseWindow vm)
+                vm.Close += () => this.Close();
+        }
     }
 }

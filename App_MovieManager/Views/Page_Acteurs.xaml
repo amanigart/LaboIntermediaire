@@ -1,0 +1,60 @@
+﻿<Page x:Class="App_MovieManager.Views.Page_Acteurs"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:App_MovieManager.Views"
+      xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+      mc:Ignorable="d" 
+      d:DesignHeight="685" d:DesignWidth="1035"
+      Title="Page_Acteurs" DataContext="{StaticResource ActorList}">
+
+    <StackPanel>
+
+        <Grid Margin="10 10 10 10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="20" />
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="20" />
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="85"/>
+            </Grid.ColumnDefinitions>
+             <!-- HEADER : BARRE D'OPTIONS -->
+            <TextBlock Grid.Column="0" Text="Acteurs" FontSize="14" FontWeight="SemiBold" VerticalAlignment="Center"/>
+            <iconPacks:PackIconMaterial Grid.Column="1" Kind="AccountSearchOutline" VerticalAlignment="Center" />
+            <TextBlock Grid.Column="2" Style="{StaticResource navItemBlocks}">
+                    <Hyperlink Style="{StaticResource navItem}">Voir détails</Hyperlink>
+            </TextBlock>
+            <iconPacks:PackIconMaterial Grid.Column="3" Kind="Plus" VerticalAlignment="Center" Height="12"/>
+            <TextBlock Grid.Column="4" Style="{StaticResource navItemBlocks}">
+                    <Hyperlink Style="{StaticResource navItem}">Ajouter</Hyperlink>
+            </TextBlock>
+            <TextBox Style="{StaticResource txtboxTheme}" Grid.Column="5" Text="Rechercher..." Width="250" Height="25" GotFocus="EmptyTextboxOnFocus" LostFocus="ResetTextboxLostFocus"/>
+            <Button Grid.Column="6" Content="Chercher" Width="70" Height="25" Margin="10 0 0 0"/>
+        </Grid>
+
+         <!-- AFFICHAGE DATAS -->
+        <DataGrid ItemsSource="{Binding ListeActeur}"
+                      Style="{StaticResource dgStyleTheme}"
+                      AutoGenerateColumns="False"
+                      ScrollViewer.CanContentScroll="True" 
+                      ScrollViewer.VerticalScrollBarVisibility="Auto"
+                      Margin="10 0 0 0">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding IdPersonne}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Nom" Binding="{Binding Nom}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Prenom" Binding="{Binding Prenom}"></DataGridTextColumn>
+                <DataGridTemplateColumn Header="Détails">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Style="{StaticResource btnGrid}" x:Name="Btn_Details" Width="60" Height="20" Content="Voir films" FontSize="10" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </StackPanel>
+</Page>

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace App_MovieManager.ViewModels
 {
-    public class LoginViewModel : ViewModelBase
+    public class LoginViewModel : ViewModelBase, ICloseWindow
     {
         public LoginViewModel()
         {
@@ -29,6 +29,7 @@ namespace App_MovieManager.ViewModels
         private string _nickname;
         private string _messageErreur;
         private CommandBase _signInCommand;
+        private CommandBase _closeWindowCommand;
 
         public int IdUser
         {
@@ -121,26 +122,31 @@ namespace App_MovieManager.ViewModels
             }
         }
 
-
         public CommandBase SignInCommand
         {
             get { return _signInCommand ?? (_signInCommand = new CommandBase(SignIn)); }
         }
 
+        public CommandBase CloseWindowCommand
+        {
+            get { return _closeWindowCommand ?? (_closeWindowCommand = new CommandBase(CloseWindow)); }
+        }
+
+        public Action Close { get; set; }
 
         public void SignIn()
         {
-            if (! _db.CheckUserExist(Email, Passwd))  // todo: boucle => si user existe pas => messageErreur
+            if (! _db.CheckUserExist(Email, Passwd))  // todo: boucle => si user existe pas => messageErreur // Nope, cf validation
                 return;
 
-            //ListeFilmsWindow nw = new ListeFilmsWindow();
-            //ListeActeursWindow nw = new ListeActeursWindow();
-            DGtestWindow dg = new DGtestWindow();
-            HomeWindow hw = new HomeWindow();
+            AppWindow aw = new AppWindow();
+            aw.Show();
+            this.CloseWindow();
+        }
 
-            dg.Show();
-            hw.Show();
-
+        public void CloseWindow()
+        {
+            Close?.Invoke();
         }
     }
 }

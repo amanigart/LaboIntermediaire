@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace App_MovieManager.Views
 {
     /// <summary>
-    /// Logique d'interaction pour TestPage.xaml
+    /// Logique d'interaction pour Page_Home.xaml
     /// </summary>
-    public partial class TestPage : Page
+    public partial class Page_Home : Page
     {
-        public TestPage()
+        public Page_Home()
         {
             InitializeComponent();
         }
