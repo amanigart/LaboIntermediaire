@@ -1,0 +1,114 @@
+﻿<Window x:Class="App_MovieManager.Views.DetailsFilmWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:App_MovieManager.Views"
+        xmlns:controls="clr-namespace:App_MovieManager.Controls"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        mc:Ignorable="d"
+        Title="DetailsFilmWindow" Height="720" Width="1200"
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen" 
+        WindowStyle="None" MouseDown="DragWindow" DataContext="{StaticResource DetailFilm}">
+    
+    <StackPanel>
+
+        <!-- WINDOW TITLE BAR -->
+        <Grid Height="35" Background="#1c73e8">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="25"/>
+                <ColumnDefinition Width="40"/>
+            </Grid.ColumnDefinitions>
+            <!-- BUTTONS -->
+            <Button Grid.Column="1" Name="btn_Minimize" 
+                    Click="btn_Minimize_Click"  
+                    HorizontalContentAlignment="Right"
+                    Style="{StaticResource BtnWindowHeader}">
+                <iconPacks:PackIconMaterial Height="10" Kind="Minus" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            </Button>
+            <Button Grid.Column="2" Name="btn_Close" 
+                    Click="btn_Close_Click"
+                    Style="{StaticResource BtnWindowHeader}">
+                <iconPacks:PackIconMaterial Height="12" Kind="Close" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            </Button>
+        </Grid>
+
+        <!-- LAYOUT -->
+        <Grid Background="White" Height="685">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="165"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <!-- NAVIGATION -->
+            <controls:NavMenu Grid.Column="0"/>
+            <!-- PAGE CONTENT -->
+            <StackPanel Grid.Column="1">
+                <!-- GRID : AFFICHE + INFOS FILM -->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Column="0" />
+                    <!-- GRID : INFOS DE BASE -->
+                    <StackPanel Grid.Column="1">
+                        <Label Content="{Binding Titre}" FontSize="25"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Column="0" Grid.Row="0"  
+                                       Text="Réalisateur :" Style="{StaticResource DetailsFilmItemsCategory}" />
+                            <TextBlock Grid.Column="0" Grid.Row="1"  
+                                       Text="Scénariste :" Style="{StaticResource DetailsFilmItemsCategory}"/>
+                            <TextBlock Grid.Column="0" Grid.Row="2"  
+                                       Text="Genre :" Style="{StaticResource DetailsFilmItemsCategory}"/>
+                            <TextBlock Grid.Column="0" Grid.Row="3"  
+                                       Text="Année :" Style="{StaticResource DetailsFilmItemsCategory}"/>
+                            <TextBlock Grid.Column="0" Grid.Row="4"  Text="Durée :" Style="{StaticResource DetailsFilmItemsCategory}"/>
+                            <Label Grid.Column="1" Grid.Row="0" 
+                                   Content="{Binding NomRealisateur}" Style="{StaticResource DetailsFilmItemsValeurs}"/>
+                            <Label Grid.Column="1" Grid.Row="1" 
+                                   Content="{Binding NomScenariste}" Style="{StaticResource DetailsFilmItemsValeurs}"/>
+                            <Label Grid.Column="1" Grid.Row="2" 
+                                   Content="{Binding NomGenre}" Style="{StaticResource DetailsFilmItemsValeurs}"/>
+                            <Label Grid.Column="1" Grid.Row="3" 
+                                   Content="{Binding DateSortie}" Style="{StaticResource DetailsFilmItemsValeurs}"/>
+                            <Label Grid.Column="1" Grid.Row="4" 
+                                   Content="{Binding Duree}" Style="{StaticResource DetailsFilmItemsValeurs}"/>
+                        </Grid>
+                        <!-- SYNOPSIS -->
+                        <Border BorderBrush="#1c73e8" BorderThickness="1"/>
+                        <TextBlock Text="SYNOPSIS" />
+                        <TextBlock Text="{Binding Synopsis}" />
+                        <Border BorderBrush="#1c73e8" BorderThickness="1"/>
+                        <!-- CASTING -->
+                        <StackPanel>
+                            <TextBlock Text="CASTING" />
+                            <DataGrid CanUserAddRows="False"
+                                      CanUserDeleteRows="False"
+                                      IsReadOnly="True"
+                                      AutoGenerateColumns="False"
+                                      Style="{StaticResource dgStyleTheme}">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Prenom+Nom" />
+                                    <DataGridTextColumn Header="Role" />
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+        </Grid>
+
+    </StackPanel>
+</Window>

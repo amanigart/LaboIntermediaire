@@ -5,50 +5,97 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:App_MovieManager.Views"
         xmlns:controls="clr-namespace:App_MovieManager.Controls"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
-        Title="ListeFilmsWindow" Height="450" Width="800" DataContext="{StaticResource MovieList}">
-    <Grid>
+        Title="ListeFilmsWindow" Height="720" Width="1200"
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen" 
+        WindowStyle="None" MouseDown="DragWindow"
+        DataContext="{StaticResource MovieList}">
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="160"/>
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
+    <StackPanel>
 
-        <controls:NavMenu Grid.Column="0"/>
+        <!-- WINDOW TITLE BAR -->
+        <Grid Height="35" Background="#1c73e8">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="25"/>
+                <ColumnDefinition Width="40"/>
+            </Grid.ColumnDefinitions>
+            <!-- BUTTONS -->
+            <Button Grid.Column="1" Name="btn_Minimize" 
+                    Click="btn_Minimize_Click"  
+                    HorizontalContentAlignment="Right"
+                    Style="{StaticResource BtnWindowHeader}">
+                <iconPacks:PackIconMaterial Height="10" Kind="Minus" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            </Button>
+            <Button Grid.Column="2" Name="btn_Close" 
+                    Click="btn_Close_Click"
+                    Style="{StaticResource BtnWindowHeader}">
+                <iconPacks:PackIconMaterial Height="12" Kind="Close" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            </Button>
+        </Grid>
 
-        <StackPanel Grid.Column="1">
+        <!-- LAYOUT -->
+        <Grid Background="White" Height="685">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="165"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <!-- NAVIGATION -->
+            <controls:NavMenu Grid.Column="0"/>
 
-            <StackPanel>
-                <TextBlock Style="{StaticResource TitrePage}" Text="Liste des films" />
-            </StackPanel>
-
-            <Border Width="200"
-                        Height="1"
-                        Background="LightGray"
-                        Opacity="0.8"
-                        Margin="-10 20 0 20 "/>
-
-            <DataGrid ItemsSource="{Binding ListeFilms}" 
-                      Margin="25 0 25 0"
+            <!-- PAGE CONTENT -->
+            <StackPanel Grid.Column="1">
+                <!-- HEADER : BARRE D'OPTIONS -->
+                <Grid Margin="12 10 10 10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="20" />
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="20" />
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="85"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Films" FontSize="20" FontWeight="SemiBold" VerticalAlignment="Center" />
+                    <iconPacks:PackIconMaterial Grid.Column="1" Kind="CogOutline" VerticalAlignment="Center"/>
+                    <TextBlock Grid.Column="2" Style="{StaticResource navItemBlocks}">
+                        <Hyperlink Style="{StaticResource navItem}">Modifier</Hyperlink>
+                    </TextBlock>
+                    <iconPacks:PackIconMaterial Grid.Column="3" Kind="Plus" VerticalAlignment="Center" Height="12"/>
+                    <TextBlock Grid.Column="4" Style="{StaticResource navItemBlocks}">
+                        <Hyperlink Style="{StaticResource navItem}">Ajouter</Hyperlink>
+                    </TextBlock>
+                    <TextBox Style="{StaticResource txtboxTheme}" Grid.Column="5" Text="Rechercher..." Width="250" Height="25" GotFocus="EmptyTextboxOnFocus" LostFocus="ResetTextboxLostFocus"/>
+                    <Button Grid.Column="6" Content="Chercher" Width="70" Height="25" Margin="10 0 0 0"/>
+                </Grid>
+                <!-- DATAGRID -->
+                <DataGrid ItemsSource="{Binding ListeFilms}"
+                      Style="{StaticResource dgStyleTheme}"
+                      Margin="10 0 0 0"
                       IsReadOnly="True"
                       AutoGenerateColumns="False">
 
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="ID" Binding="{Binding IdFilm}"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Titre" Binding="{Binding Titre}" ></DataGridTextColumn>
-                    <DataGridTextColumn Header="Année" Binding="{Binding DateSortie}"></DataGridTextColumn>
-                    <DataGridTemplateColumn Header="Détails">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <Button x:Name="Btn_Details" Width="60" Height="20" Content="DETAILS" FontSize="10" />
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                </DataGrid.Columns>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="#" Binding="{Binding IdFilm}" />
+                        <DataGridTextColumn Header="Titre" Binding="{Binding Titre}" MinWidth="100" />
+                        <DataGridTextColumn Header="Genre" Binding="{Binding Genre}" MinWidth="100" />
+                        <DataGridTextColumn Header="Réalisateur" Binding="{Binding Realisateur}" MinWidth="150" />
+                        <DataGridTextColumn Header="Scénariste" Binding="{Binding Scenariste}" MinWidth="150" />
+                        <DataGridTextColumn Header="Année" Binding="{Binding AnneeSortie}" MinWidth="100" />
+                        <DataGridTextColumn Header="Durée" Binding="{Binding Duree}" MinWidth="100" />
+                        <DataGridTemplateColumn Header="Détails">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button x:Name="Btn_Details" Width="60" Height="20" Content="DETAILS" FontSize="10" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+        </Grid>
 
-            </DataGrid>
-
-        </StackPanel>
-
-    </Grid>
+    </StackPanel>
+    
 </Window>

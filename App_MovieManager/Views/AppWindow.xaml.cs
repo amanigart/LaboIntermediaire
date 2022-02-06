@@ -24,6 +24,7 @@ namespace App_MovieManager.Views
             InitializeComponent();
         }
 
+        // Fonctions Header Window
         private void DragWindow(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
@@ -39,6 +40,36 @@ namespace App_MovieManager.Views
         {
             this.Close();
         }
+
+        // Fonctions Navigation
+        private void Hyperlink_Click_ViewMovies(object sender, RoutedEventArgs e)
+        {
+            ListeFilmsWindow nw = new ListeFilmsWindow();
+            nw.Show();
+            //Page_Home ph = new Page_Home();
+            //this.Content = ph;
+        }
+
+        private void Hyperlink_Click_ViewActors(object sender, RoutedEventArgs e)
+        {
+            ListeActeursWindow aw = new ListeActeursWindow();
+            aw.Show();
+            //Page_Acteurs pa = new Page_Acteurs();
+            //this.Content = pa;
+        }
+
+        private void Hyperlink_Click_CreateMovie(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Hyperlink_Click_ModifyMovie(object sender, RoutedEventArgs e)
+        {
+
+
+        }
+
+        // Fonctions Searchbox
         private void EmptyTextboxOnFocus(object sender, RoutedEventArgs e)
         {
             TextBox tbox = (TextBox)sender;

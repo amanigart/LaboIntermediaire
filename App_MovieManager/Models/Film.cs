@@ -15,7 +15,7 @@ namespace App_MovieManager.Models
         public int Realisateur { get; set; }
         public int Scenariste { get; set; }
         public string Synopsis { get; set; }
-        public DateTime DateSortie { get; set; }
+        public int DateSortie { get; set; }
         public string AnneeSortie { get; set; }
         public string Duree { get; set; }
         public byte[] Affiche { get; set; }
@@ -27,8 +27,7 @@ namespace App_MovieManager.Models
                 IdFilm = (int)reader["Id_Film"],
                 Titre = (string)reader["Titre"],
                 Realisateur = (int)reader["Realisateur"],
-                //AnneeSortie = (string)reader["DateSortie"]
-                DateSortie = (DateTime)reader["DateSortie"]
+                DateSortie = (int)reader["DateSortie"]
             };
         }
     }

@@ -11,16 +11,13 @@
         WindowStyle="None">
         
     <Grid>
-        <Border Grid.ColumnSpan="2"><!--Background="#1c73e8"-->
-            <!--CornerRadius="10"-->
-            <Border.Background>
+        <Border Grid.ColumnSpan="2" Background="#1c73e8" ><!-- Background="#1c73e8" -->
+            <!--<Border.Background>
                 <LinearGradientBrush>
-                <GradientStop Color="#1c73e8" Offset="0.0" />
-                <!-- #7be9f6 -->
-                <GradientStop Color="#f083da" Offset="1" />
-                <!-- #f083da -->           
+                    <GradientStop Color="#1c73e8" Offset="0.0" />
+                    <GradientStop Color="#f083da" Offset="1" />
                 </LinearGradientBrush>
-            </Border.Background>
+            </Border.Background>-->
         </Border>
 
         <Grid Grid.Column="1">
@@ -114,7 +111,7 @@
                 <!-- CREATE ACCOUNT -->
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,25,0,0">
                     <TextBlock>
-                            <Hyperlink Foreground="WhiteSmoke">Créer un nouveau compte</Hyperlink>
+                            <Hyperlink Foreground="#b2ff59" FontWeight="Medium" TextDecorations="None">Créer un nouveau compte</Hyperlink>
                     </TextBlock>
                 </StackPanel>
             </StackPanel>

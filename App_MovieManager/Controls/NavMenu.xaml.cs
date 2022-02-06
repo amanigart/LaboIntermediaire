@@ -30,23 +30,28 @@ namespace App_MovieManager.Controls
         {
             ListeFilmsWindow nw = new ListeFilmsWindow();
             nw.Show();
+            //Page_Home ph = new Page_Home();
+            //this.Content = ph;
         }
 
         private void Hyperlink_Click_ViewActors(object sender, RoutedEventArgs e)
         {
-            ListeActeursWindow nw = new ListeActeursWindow();
-            nw.Show();
+            ListeActeursWindow aw = new ListeActeursWindow();
+            aw.Show();
+            //Page_Acteurs pa = new Page_Acteurs();
+            //this.Content = pa;
         }
 
         private void Hyperlink_Click_CreateMovie(object sender, RoutedEventArgs e)
         {
-
+            CreerFilmWindow cw = new CreerFilmWindow();
+            cw.Show();
         }
 
         private void Hyperlink_Click_ModifyMovie(object sender, RoutedEventArgs e)
         {
-
-
+            ModifierFilmWindow mw = new ModifierFilmWindow();
+            mw.Show();
         }
 
 

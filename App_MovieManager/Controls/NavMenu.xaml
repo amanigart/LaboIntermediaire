@@ -12,7 +12,7 @@
         <StackPanel Name="panelNavMenu" Grid.Column="0" Background="WhiteSmoke">
 
             <StackPanel Orientation="Vertical" Margin="5 0 0 0">
-                <Label Content="userNickname" 
+                <Label Content="UserNickname" 
                        FontSize="16" FontWeight="SemiBold" 
                        HorizontalContentAlignment="Center" HorizontalAlignment="Left"/>
                 <Label Content="user@email.com" 
@@ -107,7 +107,7 @@
                         <Hyperlink Style="{StaticResource navItem}">Se déconnecter</Hyperlink>
                     </TextBlock>
                     <TextBlock Grid.Row="1" Grid.Column="1" Style="{StaticResource navItemBlocks}">
-                        <Hyperlink Style="{StaticResource navItem}">Paramètres</Hyperlink>
+                        <Hyperlink Command="{Binding CloseWindowCommand}" Style="{StaticResource navItem}">Paramètres</Hyperlink>
                     </TextBlock>
                 </Grid>
             </StackPanel>

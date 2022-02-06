@@ -8,19 +8,20 @@
 
         <ResourceDictionary>
             <vm:LoginViewModel x:Key="Main" />
+            <vm:LoginViewModel x:Key="Home" />
             <vm:ListeFilmsViewModel x:Key="MovieList" />
             <vm:ListeActeursViewModel x:Key="ActorList" />
+            <vm:DetailFilmViewModel x:Key="DetailFilm" />
+            <vm:CreerFilmViewModel x:Key="CreatelFilm" />
+            <vm:ModifierFilmViewModel x:Key="UpdateFilm" />
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Ressources/ButtonTheme.xaml" />
                 <ResourceDictionary Source="Ressources/ButtonWindowHeader.xaml" />
                 <ResourceDictionary Source="Ressources/ButtonGrid.xaml" />
-                <ResourceDictionary Source="Ressources/ButtonGridDark.xaml" />
+                <ResourceDictionary Source="Ressources/DetailFilmItems.xaml" />
                 <ResourceDictionary Source="Ressources/TextboxTheme.xaml" />
                 <ResourceDictionary Source="Ressources/NavItems.xaml" />
-                <ResourceDictionary Source="Ressources/NavItemsDark.xaml" />
                 <ResourceDictionary Source="Ressources/PageTitle.xaml" />
-                <ResourceDictionary Source="Ressources/DatagridTest.xaml" />
-                <ResourceDictionary Source="Ressources/datagrid2.xaml" />
                 <ResourceDictionary Source="Ressources/DataGridTheme.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>

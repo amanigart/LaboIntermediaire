@@ -1,7 +1,9 @@
-﻿using App_MovieManager.Tools;
+﻿using App_MovieManager.Models;
+using App_MovieManager.Tools;
 using App_MovieManager.Views;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,8 +14,11 @@ namespace App_MovieManager.ViewModels
     {
         public DetailFilmViewModel()
         {
-
+            _film = _db.GetMovieDetail(1);
         }
+
+        private FilmDetail _film = new FilmDetail();
+        private DBservices _db = new DBservices();
 
         private int _idFilm;
         private string _titre;
@@ -25,7 +30,9 @@ namespace App_MovieManager.ViewModels
         private int _idScenariste;
         private string _nomScenariste;
         private string _synopsis;
-        private DateTime _dateSortie;
+        private int _dateSortie;
+        private CommandBase _detailFilmCommand;
+        private ObservableCollection<CastingDetail> _casting;
 
         public int IdFilm
         {
@@ -157,7 +164,7 @@ namespace App_MovieManager.ViewModels
             }
         }
 
-        public DateTime DateSortie
+        public int DateSortie
         {
             get { return _dateSortie; }
             set
@@ -168,6 +175,18 @@ namespace App_MovieManager.ViewModels
                     RaisePropertyChanged(nameof(DateSortie));
                 }
             }
+        }
+
+        public CommandBase DetailFilmCommand
+        {
+            get { return _detailFilmCommand ?? (_detailFilmCommand = new CommandBase(ShowDetailMovie)); }
+        }
+
+        public void ShowDetailMovie()
+        {
+            //DetailsFilmWindow dw = new DetailsFilmWindow();
+            //dw.DataContext = this;
+            //dw.Show();
         }
     }
 }

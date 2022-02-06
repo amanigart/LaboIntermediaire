@@ -24,5 +24,14 @@ namespace App_MovieManager.Views
         {
             InitializeComponent();
         }
+
+        private void TextBlock_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                Page_Acteurs pa = new Page_Acteurs();
+                this.Content = pa;
+            }
+        }
     }
 }

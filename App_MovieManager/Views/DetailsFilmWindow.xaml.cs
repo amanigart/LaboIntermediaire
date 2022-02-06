@@ -1,5 +1,4 @@
-﻿using App_MovieManager.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,14 +15,13 @@ using System.Windows.Shapes;
 namespace App_MovieManager.Views
 {
     /// <summary>
-    /// Logique d'interaction pour ListeFilmsWindow.xaml
+    /// Logique d'interaction pour DetailsFilmWindow.xaml
     /// </summary>
-    public partial class ListeFilmsWindow : Window
+    public partial class DetailsFilmWindow : Window
     {
-        public ListeFilmsWindow()
+        public DetailsFilmWindow()
         {
             InitializeComponent();
-            DataContext = new ListeFilmsViewModel();
         }
 
         private void DragWindow(object sender, MouseButtonEventArgs e)
@@ -40,19 +38,6 @@ namespace App_MovieManager.Views
         private void btn_Close_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
-        }
-        private void EmptyTextboxOnFocus(object sender, RoutedEventArgs e)
-        {
-            TextBox tbox = (TextBox)sender;
-            tbox.Text = string.Empty;
-            tbox.GotFocus -= EmptyTextboxOnFocus;
-        }
-
-        private void ResetTextboxLostFocus(object sender, RoutedEventArgs e)
-        {
-            TextBox tbox = (TextBox)sender;
-            tbox.Text = "Rechercher...";
-            tbox.LostFocus += ResetTextboxLostFocus;
         }
     }
 }

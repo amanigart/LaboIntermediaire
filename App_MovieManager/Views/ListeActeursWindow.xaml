@@ -14,7 +14,7 @@
 
     <StackPanel>
 
-        <Grid Height="35" Background="#e0e0e0">
+        <Grid Height="35" Background="#1c73e8">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition Width="25"/>
@@ -46,7 +46,7 @@
                 <TextBlock Style="{StaticResource TitrePage}" Text="Liste des acteurs" />
             </StackPanel>-->
 
-                <Grid Margin="10 10 10 10">
+                <Grid Margin="12 10 10 10">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="3*"/>
                         <ColumnDefinition Width="20" />
@@ -57,16 +57,16 @@
                         <ColumnDefinition Width="85"/>
                     </Grid.ColumnDefinitions>
 
-                    <TextBlock Grid.Column="0" Text="Acteurs" FontSize="14" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                    <TextBlock Grid.Column="0" Text="Acteurs" FontSize="20" FontWeight="SemiBold" VerticalAlignment="Center"/>
 
                     <iconPacks:PackIconMaterial Grid.Column="1" Kind="AccountSearchOutline" VerticalAlignment="Center" />
                     <TextBlock Grid.Column="2" Style="{StaticResource navItemBlocks}">
-                    <Hyperlink Style="{StaticResource navItem}">Voir détails</Hyperlink>
+                        <Hyperlink Style="{StaticResource navItem}">Voir détails</Hyperlink>
                     </TextBlock>
 
                     <iconPacks:PackIconMaterial Grid.Column="3" Kind="Plus" VerticalAlignment="Center" Height="12"/>
                     <TextBlock Grid.Column="4" Style="{StaticResource navItemBlocks}">
-                    <Hyperlink Style="{StaticResource navItem}">Ajouter</Hyperlink>
+                        <Hyperlink Style="{StaticResource navItem}">Ajouter</Hyperlink>
                     </TextBlock>
 
                     <TextBox Style="{StaticResource txtboxTheme}" Grid.Column="5" Text="Rechercher..." Width="250" Height="25" GotFocus="EmptyTextboxOnFocus" LostFocus="ResetTextboxLostFocus"/>
@@ -88,7 +88,7 @@
                         <DataGridTemplateColumn Header="Détails">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button Style="{StaticResource btnGrid}" x:Name="Btn_Details" Width="60" Height="20" Content="Voir films" FontSize="10" />
+                                    <Button Style="{StaticResource btnGrid}" Content="Films" x:Name="Btn_Details" Width="45" Height="20" FontSize="10" />
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>

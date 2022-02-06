@@ -4,7 +4,6 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:App_MovieManager.Views"
-        xmlns:controls="clr-namespace:App_MovieManager.Controls"
         xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
         Title="" Height="720" Width="1200"
@@ -36,17 +35,113 @@
             </Button>
         </Grid>
 
-        
         <!-- LAYOUT -->
         <Grid Background="White" Height="685">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="165"/>
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
+            
             <!-- NAVIGATION -->
-            <controls:NavMenu Grid.Column="0"/>
+            <StackPanel Name="panelNavMenu" Grid.Column="0" Background="WhiteSmoke">
+                <!-- MENU : USER INFOS -->
+                <StackPanel Orientation="Vertical" Margin="5 0 0 0">
+                    <Label Content="UserNickname" 
+                       FontSize="16" FontWeight="SemiBold" 
+                       HorizontalContentAlignment="Center" HorizontalAlignment="Left"/>
+                    <Label Content="user@email.com" 
+                       FontSize="11" FontWeight="Regular" 
+                       HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="0 -10 0 0"/>
+                </StackPanel>
+                <!-- MENU : OPTIONS MIDDLE -->
+                <StackPanel Name="optionsMenu" Margin="12 50 0 15">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="20" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <iconPacks:PackIconMaterial Grid.Row="0" Kind="FilmstripBoxMultiple" Foreground="#1c73e8" VerticalAlignment="Center" />
+                        <iconPacks:PackIconMaterial Grid.Row="1" Kind="MovieOpenStar" Foreground="#1c73e8" VerticalAlignment="Center" />
+                        <iconPacks:PackIconMaterial Grid.Row="2" Kind="Delete" Foreground="#1c73e8" VerticalAlignment="Center" />
+                        <TextBlock Grid.Row="0" Grid.Column="1" Style="{StaticResource navItemBlocks}">
+                            <Hyperlink Style="{StaticResource navItem}">Ma Collection</Hyperlink>
+                        </TextBlock>
+                        <TextBlock Grid.Row="1" Grid.Column="1" Style="{StaticResource navItemBlocks}">
+                            <Hyperlink Style="{StaticResource navItem}">Mes Favoris</Hyperlink>
+                        </TextBlock>
+                        <TextBlock Grid.Row="2" Grid.Column="1" Style="{StaticResource navItemBlocks}">
+                            <Hyperlink Style="{StaticResource navItem}">Corbeille</Hyperlink>
+                        </TextBlock>
+                    </Grid>
+
+                    <Border Width="200"
+                    Height="1"
+                    Background="LightGray"
+                    Opacity="0.8"
+                    Margin="-10 20 0 20 "/>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="20" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <iconPacks:PackIconMaterial Grid.Row="0" Kind="MovieSearch" Foreground="#1c73e8" VerticalAlignment="Center" />
+                        <iconPacks:PackIconMaterial Grid.Row="1" Kind="AccountBox" Foreground="#1c73e8" VerticalAlignment="Center" />
+                        <iconPacks:PackIconMaterial Grid.Row="2" Kind="MoviePlus" Foreground="#1c73e8" VerticalAlignment="Center" />
+                        <iconPacks:PackIconMaterial Grid.Row="3" Kind="MovieOpenEdit" Foreground="#1c73e8" VerticalAlignment="Center" />
+                        <TextBlock Grid.Row="0" Grid.Column="1" Style="{StaticResource navItemBlocks}">
+                            <Hyperlink Style="{StaticResource navItem}" Click="Hyperlink_Click_ViewMovies">Voir Films</Hyperlink>
+                        </TextBlock>
+                        <TextBlock Grid.Row="1" Grid.Column="1" Style="{StaticResource navItemBlocks}">
+                            <Hyperlink Style="{StaticResource navItem}" Click="Hyperlink_Click_ViewActors">Voir Acteurs</Hyperlink>
+                        </TextBlock>
+                        <TextBlock Grid.Row="2" Grid.Column="1" Style="{StaticResource navItemBlocks}">
+                            <Hyperlink Style="{StaticResource navItem}" Click="Hyperlink_Click_CreateMovie">Créer Film</Hyperlink>
+                        </TextBlock>
+                        <TextBlock Grid.Row="3" Grid.Column="1" Style="{StaticResource navItemBlocks}">
+                            <Hyperlink Style="{StaticResource navItem}" Click="Hyperlink_Click_ModifyMovie">Modifier Film</Hyperlink>
+                        </TextBlock>
+                    </Grid>
+                </StackPanel>
+                <!-- MENU : OPTIONS BOTTOM -->
+                <StackPanel Name="bottomOptions" Orientation="Vertical" Margin="10 50 0 0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="20" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+
+                        <iconPacks:PackIconMaterial Grid.Row="0" Kind="AccountLockOutline" Foreground="#1c73e8" VerticalAlignment="Center" />
+                        <iconPacks:PackIconMaterial Grid.Row="1" Kind="Cog" Foreground="#1c73e8" VerticalAlignment="Center" />
+
+                        <TextBlock Grid.Row="0" Grid.Column="1" Style="{StaticResource navItemBlocks}">
+                        <Hyperlink Style="{StaticResource navItem}">Se déconnecter</Hyperlink>
+                        </TextBlock>
+                        <TextBlock Grid.Row="1" Grid.Column="1" Style="{StaticResource navItemBlocks}">
+                        <Hyperlink Style="{StaticResource navItem}">Paramètres</Hyperlink>
+                        </TextBlock>
+                    </Grid>
+                </StackPanel>
+            </StackPanel>
+            
             <!-- PAGE CONTENT -->
-            <Frame Grid.Column="1" Source="/Views/Page_Acteurs.xaml" />
+            <!--<Frame Grid.Column="1" Source="/Views/Page_Acteurs.xaml" />-->
+            <Frame Grid.Column="1" Source="/Views/Page_Home.xaml" />
         </Grid>
         
 

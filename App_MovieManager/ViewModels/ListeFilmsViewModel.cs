@@ -15,7 +15,7 @@ namespace App_MovieManager.ViewModels
     {
         public ListeFilmsViewModel()
         {
-            _listeFilms = new ObservableCollection<Film>(_db.GetMovieList());
+            _listeFilms = new ObservableCollection<FilmDetail>(_db.GetMovieList());
         }
 
         DBservices _db = new DBservices();
@@ -24,11 +24,11 @@ namespace App_MovieManager.ViewModels
         private string _titre;
         private int _idgenre;
         private int _realisateur;
-        private DateTime _datesortie;
+        private int _datesortie;
         private string _duree;
-        private ObservableCollection<Film> _listeFilms;
+        private ObservableCollection<FilmDetail> _listeFilms;
 
-        public ObservableCollection<Film> ListeFilms
+        public ObservableCollection<FilmDetail> ListeFilms
         {
             get { return _listeFilms; }
             set { _listeFilms = value; }
@@ -99,7 +99,7 @@ namespace App_MovieManager.ViewModels
             }
         }
 
-        public DateTime DateSortie
+        public int DateSortie
         {
             get { return _datesortie; }
             set
