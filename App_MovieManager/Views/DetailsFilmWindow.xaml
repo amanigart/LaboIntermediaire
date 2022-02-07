@@ -87,7 +87,7 @@
                             <Label Grid.Column="1" Grid.Row="3" 
                                    Content="DateSortie" Style="{StaticResource DetailsFilmItemsValeurs}"/>
                             <Label Grid.Column="1" Grid.Row="4" 
-                                   Content="Duree" Style="{StaticResource DetailsFilmItemsValeurs}"/>
+                                   Content="{Binding Duree}" Style="{StaticResource DetailsFilmItemsValeurs}"/>
                         </Grid>
                         <!-- SYNOPSIS -->
                         <Border BorderBrush="#1c73e8" BorderThickness="1"/>

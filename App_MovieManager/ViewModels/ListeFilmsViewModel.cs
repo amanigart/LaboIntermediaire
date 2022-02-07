@@ -15,7 +15,7 @@ namespace App_MovieManager.ViewModels
     {
         public ListeFilmsViewModel()
         {
-            _listeFilms = new ObservableCollection<FilmDetail>(_db.GetMovieList());
+            _listeFilms = new ObservableCollection<FilmDetail>(_db.GetMovieDetailList());
         }
 
         DBservices _db = new DBservices();
@@ -23,22 +23,28 @@ namespace App_MovieManager.ViewModels
         private int _idfilm;
         private string _titre;
         private int _idgenre;
-        private int _realisateur;
+        private string _genre;
+        private int _idRealisateur;
+        private string _realisateur;
+        private int _idScenariste;
+        private string _scenariste;
         private int _datesortie;
         private string _duree;
+        private string _synopsis;
         private ObservableCollection<FilmDetail> _listeFilms;
-        private DetailFilmViewModel _selectedItem;
 
-        public DetailFilmViewModel SelectedItem
-        {
-            get { return _selectedItem; }
-            set
-            {
-                _selectedItem = value;
-                RaisePropertyChanged(nameof(SelectedItem));
-                SelectedItem.ShowDetailMovie();
-            }
-        }
+        //private DetailFilmViewModel _selectedItem;
+
+        //public DetailFilmViewModel SelectedItem
+        //{
+        //    get { return _selectedItem; }
+        //    set
+        //    {
+        //        _selectedItem = value;
+        //        RaisePropertyChanged(nameof(SelectedItem));
+        //        SelectedItem.ShowDetailMovie();
+        //    }
+        //}
 
         public ObservableCollection<FilmDetail> ListeFilms
         {
@@ -49,14 +55,6 @@ namespace App_MovieManager.ViewModels
         public int IdFilm
         {
             get { return _idfilm; }
-            set
-            {
-                if (_idfilm != value)
-                {
-                    _idfilm = value;
-                    RaisePropertyChanged(nameof(IdFilm));
-                }
-            }
         }
 
         public string Titre
@@ -85,7 +83,33 @@ namespace App_MovieManager.ViewModels
             }
         }
 
-        public int Realisateur
+        public string Genre
+        {
+            get { return _genre; }
+            set
+            {
+                if (_genre != value)
+                {
+                    _genre = value;
+                    RaisePropertyChanged(nameof(Genre));
+                }
+            }
+        }
+
+        public int IdRealisateur
+        {
+            get { return _idRealisateur; }
+            set
+            {
+                if (_idRealisateur != value)
+                {
+                    _idRealisateur = value;
+                    RaisePropertyChanged(nameof(IdRealisateur));
+                }
+            }
+        }
+
+        public string Realisateur
         {
             get { return _realisateur; }
             set
@@ -94,6 +118,32 @@ namespace App_MovieManager.ViewModels
                 {
                     _realisateur = value;
                     RaisePropertyChanged(nameof(Realisateur));
+                }
+            }
+        }
+
+        public int IdScenariste
+        {
+            get { return _idScenariste; }
+            set
+            {
+                if (_idScenariste != value)
+                {
+                    _idScenariste = value;
+                    RaisePropertyChanged(nameof(IdScenariste));
+                }
+            }
+        }
+
+        public string Scenariste
+        {
+            get { return _scenariste; }
+            set
+            {
+                if (_scenariste != value)
+                {
+                    _scenariste = value;
+                    RaisePropertyChanged(nameof(Scenariste));
                 }
             }
         }
@@ -120,6 +170,19 @@ namespace App_MovieManager.ViewModels
                 {
                     _datesortie = value;
                     RaisePropertyChanged(nameof(DateSortie));
+                }
+            }
+        }
+
+        public string Synopsis
+        {
+            get { return _synopsis; }
+            set
+            {
+                if (_synopsis != value)
+                {
+                    _synopsis = value;
+                    RaisePropertyChanged(nameof(Synopsis));
                 }
             }
         }

@@ -136,15 +136,15 @@ namespace App_MovieManager.ViewModels
 
         public void SignIn()
         {
-            if (! _db.CheckUserExist(Email, Passwd))  // todo: boucle => si user existe pas => messageErreur // Nope, cf validation
+            if (! _db.CheckUserExist(Email, Passwd))  // todo: si user existe pas => messageErreur  (cf validation)
                 return;
 
             AppWindow aw = new AppWindow();
             aw.Show();
-            HomeWindow hw = new HomeWindow();
-            DetailsFilmWindow dw = new DetailsFilmWindow();
-            dw.Show();
-            hw.Show();
+            //DetailsFilmWindow dw = new DetailsFilmWindow();
+            //dw.Show();
+            //HomeWindow hw = new HomeWindow();
+            //hw.Show();
             this.CloseWindow();
         }
 

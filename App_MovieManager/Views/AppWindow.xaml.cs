@@ -19,9 +19,21 @@ namespace App_MovieManager.Views
     /// </summary>
     public partial class AppWindow : Window
     {
+        private List<UserControl> _pages;
+
         public AppWindow()
         {
             InitializeComponent();
+            _pages = new List<UserControl>()
+            {
+                new Home(),
+                new Collection(),
+                new Favoris(),
+                new Films(),
+                new Acteurs(),
+                new CreerFilm()
+            };
+            GridPage.Children.Add(_pages[0]);
         }
 
         // Fonctions Header Window
@@ -30,58 +42,65 @@ namespace App_MovieManager.Views
             if (e.LeftButton == MouseButtonState.Pressed)
                 DragMove();
         }
-
         private void btn_Minimize_Click(object sender, RoutedEventArgs e)
         {
             this.WindowState = WindowState.Minimized;
         }
-
         private void btn_Close_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
+        // Pages Navigation
+        private void ChangePage(object sender, RoutedEventArgs e)
+        {
+            GridPage.Children.Clear();
+            int index = MenuBtn.Children.IndexOf(sender as Button);
+            GridPage.Children.Add(_pages[index]);
+        }
+
         // Fonctions Navigation
-        private void Hyperlink_Click_ViewMovies(object sender, RoutedEventArgs e)
-        {
-            ListeFilmsWindow nw = new ListeFilmsWindow();
-            nw.Show();
-            //Page_Home ph = new Page_Home();
-            //this.Content = ph;
-        }
+        //private void Hyperlink_Click_ViewMovies(object sender, RoutedEventArgs e)
+        //{
+        //    ListeFilmsWindow nw = new ListeFilmsWindow();
+        //    nw.Show();
+        //    //Page_Home ph = new Page_Home();
+        //    //this.Content = ph;
+        //}
 
-        private void Hyperlink_Click_ViewActors(object sender, RoutedEventArgs e)
-        {
-            ListeActeursWindow aw = new ListeActeursWindow();
-            aw.Show();
-            //Page_Acteurs pa = new Page_Acteurs();
-            //this.Content = pa;
-        }
+        //private void Hyperlink_Click_ViewActors(object sender, RoutedEventArgs e)
+        //{
 
-        private void Hyperlink_Click_CreateMovie(object sender, RoutedEventArgs e)
-        {
+        //    //ListeActeursWindow aw = new ListeActeursWindow();
+        //    //aw.Show();
+        //    //Page_Acteurs pa = new Page_Acteurs();
+        //    //this.Content = pa;
+        //}
 
-        }
+        //private void Hyperlink_Click_CreateMovie(object sender, RoutedEventArgs e)
+        //{
 
-        private void Hyperlink_Click_ModifyMovie(object sender, RoutedEventArgs e)
-        {
+        //}
+
+        //private void Hyperlink_Click_ModifyMovie(object sender, RoutedEventArgs e)
+        //{
 
 
-        }
+        //}
 
         // Fonctions Searchbox
-        private void EmptyTextboxOnFocus(object sender, RoutedEventArgs e)
-        {
-            TextBox tbox = (TextBox)sender;
-            tbox.Text = string.Empty;
-            tbox.GotFocus -= EmptyTextboxOnFocus;
-        }
+        //private void EmptyTextboxOnFocus(object sender, RoutedEventArgs e)
+        //{
+        //    TextBox tbox = (TextBox)sender;
+        //    tbox.Text = string.Empty;
+        //    tbox.GotFocus -= EmptyTextboxOnFocus;
+        //}
 
-        private void ResetTextboxLostFocus(object sender, RoutedEventArgs e)
-        {
-            TextBox tbox = (TextBox)sender;
-            tbox.Text = "Rechercher...";
-            tbox.LostFocus += ResetTextboxLostFocus;
-        }
+        //private void ResetTextboxLostFocus(object sender, RoutedEventArgs e)
+        //{
+        //    TextBox tbox = (TextBox)sender;
+        //    tbox.Text = "Rechercher...";
+        //    tbox.LostFocus += ResetTextboxLostFocus;
+        //}
     }
 }

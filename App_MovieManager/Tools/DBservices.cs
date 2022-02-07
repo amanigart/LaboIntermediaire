@@ -66,5 +66,16 @@ namespace App_MovieManager.Tools
 
             return cnx.ExecuteReader(cmd, FilmDetail.Converter).FirstOrDefault();                   
         }
+
+        public IEnumerable<FilmDetail> GetMovieDetailList()
+        {
+            Connection cnx = new Connection(_connectionString);
+            string sql = "SELECT f.Id_Film, f.Titre, g.GenreDeFilm, CONCAT(r.Prenom, ' ', r.Nom) AS Realisateur, CONCAT(s.Prenom, ' ', s.Nom) AS Scenariste, f.Synopsis, f.DateSortie, f.Duree "
+                       + "FROM Film f JOIN Genre g ON(f.Id_Genre = g.Id_Genre) JOIN Personne r ON(f.Realisateur = r.Id_Personne) JOIN Personne s ON(f.Scenariste = s.Id_Personne) "
+                        ;
+            Command cmd = new Command(sql);
+
+            return cnx.ExecuteReader(cmd, FilmDetail.Converter);
+        }
     }
 }

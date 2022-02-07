@@ -16,22 +16,13 @@ using System.Windows.Shapes;
 namespace App_MovieManager.Views
 {
     /// <summary>
-    /// Logique d'interaction pour Page_Home.xaml
+    /// Logique d'interaction pour Favoris.xaml
     /// </summary>
-    public partial class Page_Home : Page
+    public partial class Favoris : UserControl
     {
-        public Page_Home()
+        public Favoris()
         {
             InitializeComponent();
-        }
-
-        private void TextBlock_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Return)
-            {
-                Page_Acteurs pa = new Page_Acteurs();
-                this.Content = pa;
-            }
         }
     }
 }

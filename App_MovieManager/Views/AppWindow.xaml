@@ -52,70 +52,43 @@
                     <Label Content="user@email.com" 
                        FontSize="11" FontWeight="Regular" 
                        HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="0 -10 0 0"/>
+                    <TextBlock Grid.Row="0" Grid.Column="1">
+                        <Hyperlink>Se déconnecter</Hyperlink>
+                    </TextBlock>
                 </StackPanel>
-                <!-- MENU : OPTIONS MIDDLE -->
-                <StackPanel Name="optionsMenu" Margin="12 50 0 15">
+                <!-- MENU : NAV OPTIONS -->
+                <StackPanel Margin="12 50 0 15">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="20" />
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition />
-                            <RowDefinition />
-                            <RowDefinition />
-                        </Grid.RowDefinitions>
-                        <iconPacks:PackIconMaterial Grid.Row="0" Kind="FilmstripBoxMultiple" Foreground="#1c73e8" VerticalAlignment="Center" />
-                        <iconPacks:PackIconMaterial Grid.Row="1" Kind="MovieOpenStar" Foreground="#1c73e8" VerticalAlignment="Center" />
-                        <iconPacks:PackIconMaterial Grid.Row="2" Kind="Delete" Foreground="#1c73e8" VerticalAlignment="Center" />
-                        <TextBlock Grid.Row="0" Grid.Column="1" Style="{StaticResource navItemBlocks}">
-                            <Hyperlink Style="{StaticResource navItem}">Ma Collection</Hyperlink>
-                        </TextBlock>
-                        <TextBlock Grid.Row="1" Grid.Column="1" Style="{StaticResource navItemBlocks}">
-                            <Hyperlink Style="{StaticResource navItem}">Mes Favoris</Hyperlink>
-                        </TextBlock>
-                        <TextBlock Grid.Row="2" Grid.Column="1" Style="{StaticResource navItemBlocks}">
-                            <Hyperlink Style="{StaticResource navItem}">Corbeille</Hyperlink>
-                        </TextBlock>
+                        <!-- Menu Icons -->
+                        <StackPanel x:Name="MenuIcons" Grid.Column="0">
+                            <iconPacks:PackIconMaterial Kind="Home" Foreground="#1c73e8" VerticalAlignment="Center" />
+                            <iconPacks:PackIconMaterial Kind="FilmstripBoxMultiple" Foreground="#1c73e8" VerticalAlignment="Center" />
+                            <iconPacks:PackIconMaterial Kind="MovieOpenStar" Foreground="#1c73e8" VerticalAlignment="Center" />
+                            <!--<iconPacks:PackIconMaterial Kind="Delete" Foreground="#1c73e8" VerticalAlignment="Center" />-->
+                            <iconPacks:PackIconMaterial Kind="MovieSearch" Foreground="#1c73e8" VerticalAlignment="Center" />
+                            <iconPacks:PackIconMaterial Kind="AccountBox" Foreground="#1c73e8" VerticalAlignment="Center" />
+                            <iconPacks:PackIconMaterial Kind="MoviePlus" Foreground="#1c73e8" VerticalAlignment="Center" />
+                            <!--<iconPacks:PackIconMaterial Kind="MovieOpenEdit" Foreground="#1c73e8" VerticalAlignment="Center" />-->
+                        </StackPanel>
+                        <!-- Menu Buttons -->
+                        <StackPanel x:Name="MenuBtn" Grid.Column="1">
+                            <Button Content="Home" Click="ChangePage"  Style="{StaticResource navBtn}"/>
+                            <Button Content="Ma Collection" Click="ChangePage" Style="{StaticResource navBtn}"/>
+                            <Button Content="Mes Favoris" Click="ChangePage" Style="{StaticResource navBtn}"/>
+                            <Button Content="Films" Click="ChangePage" Style="{StaticResource navBtn}"/>
+                            <Button Content="Acteurs" Click="ChangePage" Style="{StaticResource navBtn}"/>
+                            <Button Content="Créer un film" Style="{StaticResource navBtn}"/>
+                            <!--<Button Content="Modifier un film" Style="{StaticResource navBtn}"/>-->
+                        </StackPanel>
                     </Grid>
 
-                    <Border Width="200"
-                    Height="1"
-                    Background="LightGray"
-                    Opacity="0.8"
-                    Margin="-10 20 0 20 "/>
-
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="20" />
-                            <ColumnDefinition />
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition />
-                            <RowDefinition />
-                            <RowDefinition />
-                            <RowDefinition />
-                        </Grid.RowDefinitions>
-                        <iconPacks:PackIconMaterial Grid.Row="0" Kind="MovieSearch" Foreground="#1c73e8" VerticalAlignment="Center" />
-                        <iconPacks:PackIconMaterial Grid.Row="1" Kind="AccountBox" Foreground="#1c73e8" VerticalAlignment="Center" />
-                        <iconPacks:PackIconMaterial Grid.Row="2" Kind="MoviePlus" Foreground="#1c73e8" VerticalAlignment="Center" />
-                        <iconPacks:PackIconMaterial Grid.Row="3" Kind="MovieOpenEdit" Foreground="#1c73e8" VerticalAlignment="Center" />
-                        <TextBlock Grid.Row="0" Grid.Column="1" Style="{StaticResource navItemBlocks}">
-                            <Hyperlink Style="{StaticResource navItem}" Click="Hyperlink_Click_ViewMovies">Voir Films</Hyperlink>
-                        </TextBlock>
-                        <TextBlock Grid.Row="1" Grid.Column="1" Style="{StaticResource navItemBlocks}">
-                            <Hyperlink Style="{StaticResource navItem}" Click="Hyperlink_Click_ViewActors">Voir Acteurs</Hyperlink>
-                        </TextBlock>
-                        <TextBlock Grid.Row="2" Grid.Column="1" Style="{StaticResource navItemBlocks}">
-                            <Hyperlink Style="{StaticResource navItem}" Click="Hyperlink_Click_CreateMovie">Créer Film</Hyperlink>
-                        </TextBlock>
-                        <TextBlock Grid.Row="3" Grid.Column="1" Style="{StaticResource navItemBlocks}">
-                            <Hyperlink Style="{StaticResource navItem}" Click="Hyperlink_Click_ModifyMovie">Modifier Film</Hyperlink>
-                        </TextBlock>
-                    </Grid>
                 </StackPanel>
                 <!-- MENU : OPTIONS BOTTOM -->
-                <StackPanel Name="bottomOptions" Orientation="Vertical" Margin="10 50 0 0">
+                <!--<StackPanel Name="bottomOptions" Orientation="Vertical" Margin="10 50 0 0">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="20" />
@@ -136,14 +109,14 @@
                         <Hyperlink Style="{StaticResource navItem}">Paramètres</Hyperlink>
                         </TextBlock>
                     </Grid>
-                </StackPanel>
+                </StackPanel>-->
             </StackPanel>
             
             <!-- PAGE CONTENT -->
-            <!--<Frame Grid.Column="1" Source="/Views/Page_Acteurs.xaml" />-->
-            <Frame Grid.Column="1" Source="/Views/Page_Home.xaml" />
+            <Grid x:Name="GridPage" Grid.Column="1">
+                <!--<Frame Grid.Column="1" Source="/Views/Page_Acteurs.xaml" />-->
+            </Grid>
         </Grid>
         
-
     </StackPanel>
 </Window>

@@ -16,15 +16,16 @@ using System.Windows.Shapes;
 namespace App_MovieManager.Views
 {
     /// <summary>
-    /// Logique d'interaction pour Page_Acteurs.xaml
+    /// Logique d'interaction pour Acteurs.xaml
     /// </summary>
-    public partial class Page_Acteurs : Page
+    public partial class Acteurs : UserControl
     {
-        public Page_Acteurs()
+        public Acteurs()
         {
             InitializeComponent();
         }
 
+        //Fonctions Searchbox
         private void EmptyTextboxOnFocus(object sender, RoutedEventArgs e)
         {
             TextBox tbox = (TextBox)sender;

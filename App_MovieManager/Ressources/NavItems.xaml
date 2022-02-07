@@ -8,6 +8,11 @@
         <Setter Property="FontFamily" Value="Helvetica" />
     </Style>
 
+    <Style x:Key="navBtn" TargetType="{x:Type Button}">
+        <Setter Property="Foreground" Value="Black" />
+        <!--<Setter Property="HorizontalAlignment" Value="Left" />-->
+    </Style>
+
     <Style x:Key="navItemBlocks" TargetType="{x:Type TextBlock}">
         <Setter Property="Margin" Value="4 5 0 5" />
     </Style>

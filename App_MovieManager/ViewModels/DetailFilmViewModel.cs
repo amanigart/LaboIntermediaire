@@ -12,181 +12,95 @@ namespace App_MovieManager.ViewModels
 {
     public class DetailFilmViewModel : ViewModelBase
     {
-        public DetailFilmViewModel()
-        {
-            _film = _db.GetMovieDetail(1);
-        }
+        //public DetailFilmViewModel(FilmDetail film)
+        //{
+        //    _currentMovie = film;
+        //}
 
-        private FilmDetail _film = new FilmDetail();
+        private FilmDetail _currentMovie;
         private DBservices _db = new DBservices();
 
-        private int _idFilm;
-        private string _titre;
-        private int _idGenre;
-        private string _nomGenre;
-        private string _duree;
-        private int _idRealisateur;
-        private string _nomRealisateur;
-        private int _idScenariste;
-        private string _nomScenariste;
-        private string _synopsis;
-        private int _dateSortie;
-        private CommandBase _detailFilmCommand;
+        //private int _idFilm;
+        //private string _titre;
+        //private int _idGenre;
+        //private string _nomGenre;
+        //private string _duree;
+        //private int _idRealisateur;
+        //private string _nomRealisateur;
+        //private int _idScenariste;
+        //private string _nomScenariste;
+        //private string _synopsis;
+        //private int _dateSortie;
+        private CommandBase _showMovieDetailCommand;
         private ObservableCollection<CastingDetail> _casting;
 
         public int IdFilm
         {
-            get { return _idFilm; }
-            set
-            {
-                if (_idFilm != value)
-                {
-                    _idFilm = value;
-                    RaisePropertyChanged(nameof(IdFilm));
-                }
-            }
+            get { return _currentMovie.IdFilm; }
+            set { }
         }
 
         public string Titre
         {
-            get { return _titre; }
-            set
-            {
-                if (_titre != value)
-                {
-                    _titre = value;
-                    RaisePropertyChanged(nameof(Titre));
-                }
-            }
+            get { return _currentMovie.Titre; }
         }
 
-        public int IdGenre
-        {
-            get { return _idGenre; }
-            set
-            {
-                if (_idGenre != value)
-                {
-                    _idGenre = value;
-                    RaisePropertyChanged(nameof(IdGenre));
-                }
-            }
-        }
+        //public int IdGenre
+        //{
+
+        //}
 
         public string NomGenre
         {
-            get { return _nomGenre; }
-            set
-            {
-                if (_nomGenre != value)
-                {
-                    _nomGenre = value;
-                    RaisePropertyChanged(nameof(NomGenre));
-                }
-            }
+            get { return _currentMovie.Genre; }
         }
 
         public string Duree
         {
-            get { return _duree; }
-            set
-            {
-                if (_duree != value)
-                {
-                    _duree = value;
-                    RaisePropertyChanged(nameof(Duree));
-                }
-            }
+            get { return _currentMovie.Duree; }
         }
 
-        public int IdRealisateur
-        {
-            get { return _idRealisateur; }
-            set
-            {
-                if (_idRealisateur != value)
-                {
-                    _idRealisateur = value;
-                    RaisePropertyChanged(nameof(IdRealisateur));
-                }
-            }
-        }
+        //public int IdRealisateur
+        //{
+
+        //}
 
         public string NomRealisateur
         {
-            get { return _nomRealisateur; }
-            set
-            {
-                if (_nomRealisateur != value)
-                {
-                    _nomRealisateur = value;
-                    RaisePropertyChanged(nameof(NomRealisateur));
-                }
-            }
+            get { return _currentMovie.Realisateur; }
         }
 
-        public int IdScenariste
-        {
-            get { return _idScenariste; }
-            set
-            {
-                if (_idScenariste != value)
-                {
-                    _idScenariste = value;
-                    RaisePropertyChanged(nameof(IdScenariste));
-                }
-            }
-        }
+        //public int IdScenariste
+        //{
+
+        //}
 
         public string NomScenariste
         {
-            get { return _nomScenariste; }
-            set
-            {
-                if (_nomScenariste != value)
-                {
-                    _nomScenariste = value;
-                    RaisePropertyChanged(nameof(NomScenariste));
-                }
-            }
+            get { return _currentMovie.Scenariste; }
         }
 
         public string Synopsis
         {
-            get { return _synopsis; }
-            set
-            {
-                if (_synopsis != value)
-                {
-                    _synopsis = value;
-                    RaisePropertyChanged(nameof(Synopsis));
-                }
-            }
+            get { return _currentMovie.Synopsis; }
         }
 
         public int DateSortie
         {
-            get { return _dateSortie; }
-            set
-            {
-                if (_dateSortie != value)
-                {
-                    _dateSortie = value;
-                    RaisePropertyChanged(nameof(DateSortie));
-                }
-            }
+            get { return _currentMovie.AnneeSortie; }
         }
 
-        public CommandBase DetailFilmCommand
+        public CommandBase ShowMovieDetailCommand
         {
-            get { return _detailFilmCommand ?? (_detailFilmCommand = new CommandBase(ShowDetailMovie)); }
+            get { return _showMovieDetailCommand ?? (_showMovieDetailCommand = new CommandBase(ShowMovieDetail )); }
         }
 
-        public void ShowDetailMovie()
+        public void ShowMovieDetail()
         {
             DetailsFilmWindow dw = new DetailsFilmWindow();
             dw.DataContext = this;
             dw.Show();
         }
+
     }
 }

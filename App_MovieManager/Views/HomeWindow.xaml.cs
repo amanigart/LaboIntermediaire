@@ -43,6 +43,9 @@ namespace App_MovieManager.Views
         {
             //if (e.Key == Key.Return)
             //{
+
+            //}
+            //{
             //    Page_Acteurs pa = new Page_Acteurs();
             //    this.Content = pa;
             //}

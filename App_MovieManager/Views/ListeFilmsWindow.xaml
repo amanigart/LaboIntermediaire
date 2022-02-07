@@ -71,10 +71,11 @@
                 </Grid>
                 <!-- DATAGRID -->
                 <DataGrid ItemsSource="{Binding ListeFilms}"
-                      Style="{StaticResource dgStyleTheme}"
-                      Margin="10 0 0 0"
-                      IsReadOnly="True"
-                      AutoGenerateColumns="False">
+                          x:Name="DatagridMovies"
+                          Style="{StaticResource dgStyleTheme}"
+                          Margin="10 0 0 0"
+                          IsReadOnly="True"
+                          AutoGenerateColumns="False">
 
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="#" Binding="{Binding IdFilm}" />
@@ -87,7 +88,7 @@
                         <DataGridTemplateColumn Header="Détails">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button x:Name="Btn_Details" Width="60" Height="20" Content="DETAILS" FontSize="10" />
+                                    <Button Click="Button_Click" Content="DETAILS" Width="60" Height="20" FontSize="10" />
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
