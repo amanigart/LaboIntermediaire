@@ -139,10 +139,11 @@ namespace App_MovieManager.ViewModels
             if (! _db.CheckUserExist(Email, Passwd))  // todo: boucle => si user existe pas => messageErreur // Nope, cf validation
                 return;
 
-            //AppWindow aw = new AppWindow();
+            AppWindow aw = new AppWindow();
+            aw.Show();
             HomeWindow hw = new HomeWindow();
-            DetailsFilmWindow detailsFilmWindow = new DetailsFilmWindow();
-            detailsFilmWindow.Show();
+            DetailsFilmWindow dw = new DetailsFilmWindow();
+            dw.Show();
             hw.Show();
             this.CloseWindow();
         }

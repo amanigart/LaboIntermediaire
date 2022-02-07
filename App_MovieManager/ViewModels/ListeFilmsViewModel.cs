@@ -27,6 +27,18 @@ namespace App_MovieManager.ViewModels
         private int _datesortie;
         private string _duree;
         private ObservableCollection<FilmDetail> _listeFilms;
+        private DetailFilmViewModel _selectedItem;
+
+        public DetailFilmViewModel SelectedItem
+        {
+            get { return _selectedItem; }
+            set
+            {
+                _selectedItem = value;
+                RaisePropertyChanged(nameof(SelectedItem));
+                SelectedItem.ShowDetailMovie();
+            }
+        }
 
         public ObservableCollection<FilmDetail> ListeFilms
         {

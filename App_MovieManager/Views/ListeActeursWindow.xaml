@@ -88,7 +88,7 @@
                         <DataGridTemplateColumn Header="Détails">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button Style="{StaticResource btnGrid}" Content="Films" x:Name="Btn_Details" Width="45" Height="20" FontSize="10" />
+                                    <Button Content="Films" x:Name="Btn_Details" FontSize="10" />
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>

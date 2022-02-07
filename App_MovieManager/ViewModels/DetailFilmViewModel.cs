@@ -184,9 +184,9 @@ namespace App_MovieManager.ViewModels
 
         public void ShowDetailMovie()
         {
-            //DetailsFilmWindow dw = new DetailsFilmWindow();
-            //dw.DataContext = this;
-            //dw.Show();
+            DetailsFilmWindow dw = new DetailsFilmWindow();
+            dw.DataContext = this;
+            dw.Show();
         }
     }
 }
