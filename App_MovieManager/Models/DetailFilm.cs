@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace App_MovieManager.Models
 {
-    public class FilmDetail
+    public class DetailFilm
     {
         public int IdFilm { get; set; }
         public string Titre { get; set; }
@@ -17,14 +17,15 @@ namespace App_MovieManager.Models
         public string Synopsis { get; set; }
         public int AnneeSortie { get; set; }
         public string Duree { get; set; }
+        public Dictionary<string, string> Casting { get; set; }
 
-        public static FilmDetail Converter(SqlDataReader reader)
+        public static DetailFilm Converter(SqlDataReader reader)
         {
-            return new FilmDetail
+            return new DetailFilm
             {
                 IdFilm = (int)reader["Id_Film"],
                 Titre = (string)reader["Titre"],
-                Genre= (string)reader["GenreDeFilm"],
+                Genre = (string)reader["GenreDeFilm"],
                 Realisateur = (string)reader["Realisateur"],
                 Scenariste = (string)reader["Scenariste"],
                 Synopsis = (string)reader["Synopsis"],
@@ -32,21 +33,5 @@ namespace App_MovieManager.Models
                 Duree = (string)reader["Duree"]
             };
         }
-
-        public static FilmDetail Converter2(SqlDataReader reader)
-        {
-            return new FilmDetail
-            {
-                IdFilm = (int)reader["Id_Film"],
-                Titre = (string)reader["Titre"],
-                Genre = (string)reader["GenreDeFilm"],
-                Realisateur= (string)reader["Realisateur"],
-                Scenariste= (string)reader["Scenariste"],
-                AnneeSortie = (int)reader["DateSortie"],
-                Duree = (string)reader["Duree"]
-            };
-        }
-
-
     }
 }

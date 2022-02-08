@@ -12,12 +12,12 @@ namespace App_MovieManager.ViewModels
 {
     public class DetailFilmViewModel : ViewModelBase
     {
-        //public DetailFilmViewModel(FilmDetail film)
+        //public DetailFilmViewModel(DetailFilm film)
         //{
         //    _currentMovie = film;
         //}
 
-        private FilmDetail _currentMovie;
+        private DetailFilm _currentMovie;
         private DBservices _db = new DBservices();
 
         //private int _idFilm;

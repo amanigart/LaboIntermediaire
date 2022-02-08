@@ -46,16 +46,16 @@ namespace App_MovieManager.Tools
             return cnx.ExecuteReader(cmd, Personne.Converter);
         }
 
-        public IEnumerable<FilmDetail> GetMovieList()
+        public IEnumerable<DetailFilm> GetMovieList()
         {
             Connection cnx = new Connection(_connectionString);
             string sql = "SELECT f.Id_Film, f.Titre, g.GenreDeFilm, CONCAT(r.Prenom,' ',r.Nom) AS Realisateur, CONCAT(s.Prenom,' ',s.Nom) AS Scenariste, f.DateSortie, f.Duree FROM Film f JOIN Genre g ON (f.Id_Genre = g.Id_Genre) JOIN Personne r ON (f.Realisateur = r.Id_Personne) JOIN Personne s ON (f.Scenariste = s.Id_Personne)";
             Command cmd = new Command(sql);
 
-            return cnx.ExecuteReader(cmd, FilmDetail.Converter2);
+            return cnx.ExecuteReader(cmd, DetailFilm.Converter);
         }
 
-        public FilmDetail GetMovieDetail(int idFilm)
+        public DetailFilm GetMovieDetail(int idFilm)
         {
             Connection cnx = new Connection(_connectionString);
             string sql = "SELECT f.Id_Film, f.Titre, g.GenreDeFilm, CONCAT(r.Prenom, ' ', r.Nom) AS Realisateur, CONCAT(s.Prenom, ' ', s.Nom) AS Scenariste, f.Synopsis, f.DateSortie, f.Duree "
@@ -64,10 +64,10 @@ namespace App_MovieManager.Tools
             Command cmd = new Command(sql);
             cmd.AddParameter("idFilm", idFilm);
 
-            return cnx.ExecuteReader(cmd, FilmDetail.Converter).FirstOrDefault();                   
+            return cnx.ExecuteReader(cmd, DetailFilm.Converter).FirstOrDefault();                   
         }
 
-        public IEnumerable<FilmDetail> GetMovieDetailList()
+        public IEnumerable<DetailFilm> GetMovieDetailList()
         {
             Connection cnx = new Connection(_connectionString);
             string sql = "SELECT f.Id_Film, f.Titre, g.GenreDeFilm, CONCAT(r.Prenom, ' ', r.Nom) AS Realisateur, CONCAT(s.Prenom, ' ', s.Nom) AS Scenariste, f.Synopsis, f.DateSortie, f.Duree "
@@ -75,7 +75,7 @@ namespace App_MovieManager.Tools
                         ;
             Command cmd = new Command(sql);
 
-            return cnx.ExecuteReader(cmd, FilmDetail.Converter);
+            return cnx.ExecuteReader(cmd, DetailFilm.Converter);
         }
     }
 }
