@@ -8,10 +8,12 @@
 
         <ResourceDictionary>
             <vm:LoginViewModel x:Key="Main" />
+            <vm:AppViewModel x:Key="App" />
             <vm:LoginViewModel x:Key="Home" />
             <vm:ListeFilmsViewModel x:Key="MovieList" />
             <vm:ListeActeursViewModel x:Key="ActorList" />
             <vm:DetailFilmViewModel x:Key="DetailFilm" />
+            <vm:ModifierFilmViewModel x:Key="Modify" />
             <vm:CreerFilmViewModel x:Key="CreatelFilm" />
             <vm:ModifierFilmViewModel x:Key="UpdateFilm" />
             <ResourceDictionary.MergedDictionaries>

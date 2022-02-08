@@ -1,0 +1,7 @@
+﻿CREATE FUNCTION GetSecretKey
+()
+RETURNS VARCHAR(200)
+AS
+BEGIN
+	RETURN 'un P0k3mon s@uv@ge APParaît'
+END

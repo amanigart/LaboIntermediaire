@@ -15,7 +15,7 @@ namespace App_MovieManager.Tools
         private string _connectionString = "Data Source=5233;Initial Catalog=MovieDB;User ID=adrien;Password=Test1234;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
 
-        public bool CheckUserExist(string email,string passwd)
+        public bool CheckIfUserExist(string email,string passwd)
         {
             Connection cnx = new Connection(_connectionString);
             string sql = "UserLogin";
@@ -70,12 +70,47 @@ namespace App_MovieManager.Tools
         public IEnumerable<DetailFilm> GetMovieDetailList()
         {
             Connection cnx = new Connection(_connectionString);
-            string sql = "SELECT f.Id_Film, f.Titre, g.GenreDeFilm, CONCAT(r.Prenom, ' ', r.Nom) AS Realisateur, CONCAT(s.Prenom, ' ', s.Nom) AS Scenariste, f.Synopsis, f.DateSortie, f.Duree "
-                       + "FROM Film f JOIN Genre g ON(f.Id_Genre = g.Id_Genre) JOIN Personne r ON(f.Realisateur = r.Id_Personne) JOIN Personne s ON(f.Scenariste = s.Id_Personne) "
+            string sql = "GetMovieDetail"
                         ;
-            Command cmd = new Command(sql);
+            Command cmd = new Command(sql, true);
 
             return cnx.ExecuteReader(cmd, DetailFilm.Converter);
         }
+
+
+        // Fonctions d'UPDATE des tables
+        public int UpdateMovieTable(string titre)
+        {
+            Connection cnx = new Connection(_connectionString);
+            string sql = "ModifyMovie";
+            Command cmd = new Command(sql, true);
+            cmd.AddParameter("titre", titre);
+
+            return cnx.ExecuteNonQuery(cmd);
+        }
+
+
+
+
+
+        //public object UpdateTablePersonne()
+        //{
+        //    // va renvoyer l'id de lapersonne
+        //}
+
+        //public object UpdateTableGenre()
+        //{
+        //    // va renvoyer l'id du genre
+        //}
+
+        //public object UpdateTableFilm(int idRealisateur, int idScenariste, int idGenre)
+        //{
+        //    // va mettre la table film à jour
+        //}
+
+        //public object UpdateTableCasting(List<object> PersonneRoleFilm)
+        //{
+        //    // va mettre à jour la table casting 
+        //}
     }
 }

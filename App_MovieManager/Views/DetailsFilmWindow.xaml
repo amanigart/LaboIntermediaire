@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         Title="DetailsFilmWindow" Height="720" Width="1200"
         ResizeMode="NoResize" WindowStartupLocation="CenterScreen" 
-        WindowStyle="None" MouseDown="DragWindow" DataContext="{StaticResource DetailFilm}">
+        WindowStyle="None" MouseDown="DragWindow">
     
     <StackPanel>
 
@@ -41,7 +41,7 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <!-- NAVIGATION -->
-            <controls:NavMenu Grid.Column="0"/>
+            <!--<controls:NavMenu Grid.Column="0"/>-->
             <!-- PAGE CONTENT -->
             <StackPanel Grid.Column="1">
                 <!-- GRID : AFFICHE + INFOS FILM -->
@@ -53,7 +53,7 @@
                     <Image Grid.Column="0" />
                     <!-- GRID : INFOS DE BASE -->
                     <StackPanel Grid.Column="1">
-                        <Label Content="TITRE" FontSize="25"/>
+                        <Label Content="{Binding Titre}" FontSize="25"/>
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto"/>
@@ -68,7 +68,7 @@
                             </Grid.RowDefinitions>
                             
                             <TextBlock Grid.Column="0" Grid.Row="0"  
-                                       Text="Réalisateur :" Style="{StaticResource DetailsFilmItemsCategory}" />
+                                       Text="Réalisateur" Style="{StaticResource DetailsFilmItemsCategory}" />
                             <TextBlock Grid.Column="0" Grid.Row="1"  
                                        Text="Scénariste :" Style="{StaticResource DetailsFilmItemsCategory}"/>
                             <TextBlock Grid.Column="0" Grid.Row="2"  
@@ -79,20 +79,20 @@
                                        Text="Durée :" Style="{StaticResource DetailsFilmItemsCategory}"/>
                             
                             <Label Grid.Column="1" Grid.Row="0" 
-                                   Content="RealisateurName" Style="{StaticResource DetailsFilmItemsValeurs}"/>
+                                   Content="{Binding Realisateur}" Style="{StaticResource DetailsFilmItemsValeurs}"/>
                             <Label Grid.Column="1" Grid.Row="1" 
-                                   Content="ScenaristeName" Style="{StaticResource DetailsFilmItemsValeurs}"/>
+                                   Content="{Binding Scenariste}"  Style="{StaticResource DetailsFilmItemsValeurs}"/>
                             <Label Grid.Column="1" Grid.Row="2" 
-                                   Content="GenreName" Style="{StaticResource DetailsFilmItemsValeurs}"/>
+                                   Content="{Binding NomGenre}"  Style="{StaticResource DetailsFilmItemsValeurs}"/>
                             <Label Grid.Column="1" Grid.Row="3" 
-                                   Content="DateSortie" Style="{StaticResource DetailsFilmItemsValeurs}"/>
+                                   Content="{Binding DateSortie}"  Style="{StaticResource DetailsFilmItemsValeurs}"/>
                             <Label Grid.Column="1" Grid.Row="4" 
-                                   Content="{Binding Duree}" Style="{StaticResource DetailsFilmItemsValeurs}"/>
+                                   Content="{Binding Duree}"  Style="{StaticResource DetailsFilmItemsValeurs}"/>
                         </Grid>
                         <!-- SYNOPSIS -->
                         <Border BorderBrush="#1c73e8" BorderThickness="1"/>
                         <TextBlock Text="SYNOPSIS" />
-                        <TextBlock Text="loremp ispsum synopsis..." />
+                        <TextBlock Text="{Binding Synopsis}" />
                         <Border BorderBrush="#1c73e8" BorderThickness="1"/>
                         <!-- CASTING -->
                         <StackPanel>

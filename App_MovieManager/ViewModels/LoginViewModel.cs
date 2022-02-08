@@ -28,8 +28,6 @@ namespace App_MovieManager.ViewModels
         private string _passwd;
         private string _nickname;
         private string _messageErreur;
-        private CommandBase _signInCommand;
-        private CommandBase _closeWindowCommand;
 
         public int IdUser
         {
@@ -122,32 +120,35 @@ namespace App_MovieManager.ViewModels
             }
         }
 
+
+        // SignIn Button Command
+        private CommandBase _signInCommand;
         public CommandBase SignInCommand
         {
             get { return _signInCommand ?? (_signInCommand = new CommandBase(SignIn)); }
         }
+        public void SignIn()
+        {
+            if (! _db.CheckIfUserExist(Email, Passwd))  // todo: si user existe pas => messageErreur  (cf validation)
+                return;
 
+            if (!(Session.CurrentUser is null))
+            {
+                AppWindow aw = new AppWindow();
+                aw.Show();
+                this.CloseWindow();
+            }
+
+        }
+
+
+        // Close Login Window Command
+        private CommandBase _closeWindowCommand;
         public CommandBase CloseWindowCommand
         {
             get { return _closeWindowCommand ?? (_closeWindowCommand = new CommandBase(CloseWindow)); }
         }
-
         public Action Close { get; set; }
-
-        public void SignIn()
-        {
-            if (! _db.CheckUserExist(Email, Passwd))  // todo: si user existe pas => messageErreur  (cf validation)
-                return;
-
-            AppWindow aw = new AppWindow();
-            aw.Show();
-            //DetailsFilmWindow dw = new DetailsFilmWindow();
-            //dw.Show();
-            //HomeWindow hw = new HomeWindow();
-            //hw.Show();
-            this.CloseWindow();
-        }
-
         public void CloseWindow()
         {
             Close?.Invoke();

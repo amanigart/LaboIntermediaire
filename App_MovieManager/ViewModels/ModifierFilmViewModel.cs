@@ -7,29 +7,23 @@ using System.Threading.Tasks;
 
 namespace App_MovieManager.ViewModels
 {
-    public class ModifierFilmViewModel : ViewModelBase, ICloseWindow
+    public class ModifierFilmViewModel : ViewModelBase
     {
-        private CommandBase _closeWindowCommand;
-        private CommandBase _minimizeWindowCommand;
+        private DBservices _db = new DBservices();
 
-        public Action Close { get; set; }
-        public Action Minimize { get; set; }
-        public CommandBase CloseWindowCommand
-        {
-            get { return _closeWindowCommand ?? (_closeWindowCommand = new CommandBase(CloseWindow)); }
-        }
-        public CommandBase MinimizeWindowCommand
-        {
-            get { return _minimizeWindowCommand ?? (_minimizeWindowCommand = new CommandBase(MinimizeWindow)); }
-        }
+        //// Commande Enregistrer update film
+        //private CommandBase _saveMovieModifyCommand;
+        //public CommandBase SaveMovieModifyCommand
+        //{
+        //    get { return _saveMovieModifyCommand ?? (_saveMovieModifyCommand = new CommandBase(SaveMovieModify)); }
+        //}
 
-        public void CloseWindow()
-        {
-            Close?.Invoke();
-        }
-        public void MinimizeWindow()
-        {
-            Minimize?.Invoke();
-        }
+        //public void SaveMovieModify()
+        //{
+        //    MainWindow mw = new MainWindow();
+        //    mw.Show();
+        //    //_db.UpdateModifyMovie("test");
+
+        //}
     }
 }

@@ -1,0 +1,59 @@
+﻿<Window x:Class="App_MovieManager.Views.ModifyWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:App_MovieManager.Views"
+        mc:Ignorable="d"
+        Title="ModifyWindow" Height="450" Width="800" DataContext="{StaticResource Modify}">
+
+    <StackPanel Margin="10">
+        <Grid Background="LightGray">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <!-- LABELS -->
+            <Label Grid.Row="0" Content="Titre :" />
+            <Label Grid.Row="1" Content="Genre :" />
+            <Label Grid.Row="2" Content="Année de sortie" />
+            <Label Grid.Row="3" Content="Durée :" />
+            <Label Grid.Row="4" Content="Réalisateur :" />
+            <Label Grid.Row="5" Content="Scénariste :" />
+            <Label Grid.Row="6" Content="Synopsis :" />
+            <!-- COLONNE 1 -->
+            <TextBox Grid.Column="1" Grid.Row="0" x:Name="titreFilm" Text="{Binding Titre}" />
+            <TextBox Grid.Column="1" Grid.Row="1" x:Name="genreFilm" Text="{Binding NomGenre}" />
+            <TextBox Grid.Column="1" Grid.Row="2" x:Name="anSortie" Text="{Binding DateSortie}" />
+            <TextBox Grid.Column="1" Grid.Row="3" x:Name="dureeFilm" Text="{Binding Duree}" />
+            <TextBox Grid.Column="1" Grid.Row="4" x:Name="realNom" Text="{Binding NomRealisateur}" />
+            <TextBox Grid.Column="1" Grid.Row="5" x:Name="scenarNom" Text="{Binding NomScenariste}" />
+            <TextBox Grid.Column="1" Grid.Row="6" x:Name="synopsisFilm" Text="{Binding Synopsis}" Grid.ColumnSpan="4" Height="75" TextWrapping="NoWrap"/>
+            <!-- COLONNE 2 -->
+            <TextBox Grid.Column="2" Grid.Row="4" x:Name="realPrenom" Text="{Binding PrenomRealisateur}" />
+            <TextBox Grid.Column="2" Grid.Row="5" x:Name="scenarPrenom" Text="{Binding PrenomScenariste}" />
+            <!-- COLONNE 3 -->
+            <TextBox Grid.Column="3" Grid.Row="4" x:Name="realDateNaiss" Text="{Binding DateNaissanceRealisateur}" />
+            <TextBox Grid.Column="3" Grid.Row="5" x:Name="scenarDateNaiss" Text="{Binding DateNaissanceScenariste}" />
+            <!-- COLONNE 4 -->
+            <TextBox Grid.Column="4" Grid.Row="4" x:Name="realNatio" Text="{Binding NationaliteRealisateur}" />
+            <TextBox Grid.Column="4" Grid.Row="5" x:Name="scenarNatio" Text="{Binding NationaliteScenariste}" />
+        </Grid>
+        
+        <Button Command="{Binding SaveMovieModifyCommand}" Content="MODIFIER" Width="75" Margin="0 20"/>
+    </StackPanel>
+</Window>
