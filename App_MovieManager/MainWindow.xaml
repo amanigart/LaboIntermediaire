@@ -121,7 +121,7 @@
                 <!-- CREATE ACCOUNT -->
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,25,0,0">
                     <TextBlock>
-                            <Hyperlink Foreground="#b2ff59" FontWeight="Medium" TextDecorations="None">Créer un nouveau compte</Hyperlink>
+                            <Hyperlink Command="{Binding SignUpCommand}" Foreground="#b2ff59" FontWeight="Medium" TextDecorations="None">Créer un nouveau compte</Hyperlink>
                     </TextBlock>
                 </StackPanel>
             </StackPanel>

@@ -1,7 +1,4 @@
-﻿using AdoToolbox;
-using App_MovieManager.Models;
-using App_MovieManager.Tools;
-using App_MovieManager.Views;
+﻿using App_MovieManager.Tools;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,37 +7,14 @@ using System.Threading.Tasks;
 
 namespace App_MovieManager.ViewModels
 {
-    public class LoginViewModel : ViewModelBase, ICloseWindow
+    public class RegisterViewModel : ViewModelBase, ICloseWindow
     {
-        public LoginViewModel()
-        {
-            Email = "";
-            Passwd = "";
-            MessageErreur = "";
-        }
-
-        private DBservices _db = new DBservices();
-
-        private int _idUser;
         private string _nom;
         private string _prenom;
         private string _email;
         private string _passwd;
         private string _nickname;
-        private string _messageErreur;
-
-        public int IdUser
-        {
-            get { return _idUser; }
-            set
-            {
-                if (_idUser != value)
-                {
-                    _idUser = value;
-                    RaisePropertyChanged(nameof(IdUser));
-                }
-            }
-        }
+        private CommandBase _signUpCommand;
 
         public string Nom
         {
@@ -54,7 +28,6 @@ namespace App_MovieManager.ViewModels
                 }
             }
         }
-
         public string Prenom
         {
             get { return _prenom; }
@@ -106,53 +79,17 @@ namespace App_MovieManager.ViewModels
                 }
             }
         }
-
-        public string MessageErreur
-        {
-            get { return _messageErreur; }
-            set
-            {
-                if (_messageErreur != value)
-                {
-                    _messageErreur = value;
-                    RaisePropertyChanged(nameof(MessageErreur));
-                }
-            }
-        }
-
-
-        // SignIn Button Command
-        private CommandBase _signInCommand;
-        public CommandBase SignInCommand
-        {
-            get { return _signInCommand ?? (_signInCommand = new CommandBase(SignIn)); }
-        }
-        public void SignIn()
-        {
-            if (! _db.CheckIfUserExist(Email, Passwd))  // todo: si user existe pas => messageErreur  (cf validation)
-                return;
-
-            if (!(Session.CurrentUser is null))
-            {
-                AppWindow aw = new AppWindow();
-                aw.Show();
-                this.CloseWindow();
-            }
-
-        }
-
-        // SignUp Link Command
-        private CommandBase _signUpCommand;
         public CommandBase SignUpCommand
         {
             get { return _signUpCommand ?? (_signUpCommand = new CommandBase(SignUp)); }
         }
+
         public void SignUp()
         {
-            CreerUtilisateur cuw = new CreerUtilisateur();
-            cuw.Show();
+            DBservices _dbreg = new DBservices();
+            _dbreg.CreateUser(Nom, Prenom, Email, Passwd, Nickname);
+            this.CloseWindow();
         }
-
 
         // Close Login Window Command
         private CommandBase _closeWindowCommand;

@@ -37,6 +37,20 @@ namespace App_MovieManager.Tools
             return true;
         }
 
+        public void CreateUser(string nom, string prenom, string email, string password, string nickname)
+        {
+            Connection cnx = new Connection(_connectionString);
+            string sql = "UserRegister";
+            Command cmd = new Command(sql, true);
+            cmd.AddParameter("name", nom);
+            cmd.AddParameter("firstName", prenom);
+            cmd.AddParameter("email", email);
+            cmd.AddParameter("password", password);
+            cmd.AddParameter("nickname", nickname);
+            int Rows = cnx.ExecuteNonQuery(cmd);
+
+        }
+
         public IEnumerable<Personne> GetListActors()
         {
             Connection cnx = new Connection(_connectionString);

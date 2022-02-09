@@ -9,6 +9,7 @@
         <ResourceDictionary>
             <vm:LoginViewModel x:Key="Main" />
             <vm:AppViewModel x:Key="App" />
+            <vm:RegisterViewModel x:Key="Register" />
             <vm:LoginViewModel x:Key="Home" />
             <vm:ListeFilmsViewModel x:Key="MovieList" />
             <vm:ListeActeursViewModel x:Key="ActorList" />

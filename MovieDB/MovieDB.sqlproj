@@ -144,6 +144,7 @@
     <Build Include="dbo\Stored Procedures\UpdatePersonne.sql" />
     <Build Include="dbo\Stored Procedures\UpdateFilm.sql" />
     <Build Include="dbo\Functions\CheckIfGenreExist.sql" />
+    <Build Include="dbo\Collection_View.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="MovieDB.publish.xml" />
