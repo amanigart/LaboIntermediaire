@@ -11,6 +11,8 @@ namespace App_MovieManager.ViewModels
     {
         private DBservices _db = new DBservices();
 
+        public Dictionary<int, string> ListeRealisateurs { get; set; }
+
         //// Commande Enregistrer update film
         //private CommandBase _saveMovieModifyCommand;
         //public CommandBase SaveMovieModifyCommand

@@ -31,6 +31,7 @@ namespace App_MovieManager.Views
                 new Home(),
                 new Collection(),
                 new Favoris(),
+                new Corbeille(),
                 new Films(),
                 new Acteurs(),
                 new CreerFilm()

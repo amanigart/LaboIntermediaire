@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App_MovieManager", "App_Mov
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdoToolbox", "AdoToolbox\AdoToolbox.csproj", "{4EA1C45A-5BA1-4D15-BD7C-9F4EC85F7DBF}"
 EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DB_Movie", "DB_Movie\DB_Movie.sqlproj", "{F1A1B138-CEC5-4D49-969D-5CDE397BB359}"
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "MovieDB", "MovieDB\MovieDB.sqlproj", "{85025CD6-6487-41A1-A86E-6A5647D07206}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,12 +23,12 @@ Global
 		{4EA1C45A-5BA1-4D15-BD7C-9F4EC85F7DBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4EA1C45A-5BA1-4D15-BD7C-9F4EC85F7DBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4EA1C45A-5BA1-4D15-BD7C-9F4EC85F7DBF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F1A1B138-CEC5-4D49-969D-5CDE397BB359}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F1A1B138-CEC5-4D49-969D-5CDE397BB359}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F1A1B138-CEC5-4D49-969D-5CDE397BB359}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{F1A1B138-CEC5-4D49-969D-5CDE397BB359}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F1A1B138-CEC5-4D49-969D-5CDE397BB359}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F1A1B138-CEC5-4D49-969D-5CDE397BB359}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{85025CD6-6487-41A1-A86E-6A5647D07206}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85025CD6-6487-41A1-A86E-6A5647D07206}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85025CD6-6487-41A1-A86E-6A5647D07206}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{85025CD6-6487-41A1-A86E-6A5647D07206}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85025CD6-6487-41A1-A86E-6A5647D07206}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85025CD6-6487-41A1-A86E-6A5647D07206}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:App_MovieManager.Views"
         mc:Ignorable="d"
-        Title="ModifyWindow" Height="450" Width="800" DataContext="{StaticResource Modify}">
+        Title="ModifyWindow" Height="650" Width="800" DataContext="{StaticResource Modify}">
 
     <StackPanel Margin="10">
         <Grid Background="LightGray">
@@ -40,20 +40,35 @@
             <TextBox Grid.Column="1" Grid.Row="1" x:Name="genreFilm" Text="{Binding NomGenre}" />
             <TextBox Grid.Column="1" Grid.Row="2" x:Name="anSortie" Text="{Binding DateSortie}" />
             <TextBox Grid.Column="1" Grid.Row="3" x:Name="dureeFilm" Text="{Binding Duree}" />
-            <TextBox Grid.Column="1" Grid.Row="4" x:Name="realNom" Text="{Binding NomRealisateur}" />
-            <TextBox Grid.Column="1" Grid.Row="5" x:Name="scenarNom" Text="{Binding NomScenariste}" />
+            <ComboBox Grid.Column="1" Grid.Row="4" ItemsSource="{Binding Path=ListeRealisateurs}"
+                      DisplayMemberPath="Nom"
+                      SelectedValuePath="Nom"
+                      SelectedValue="{Binding SelectedDirector}"/>
+            <ComboBox ItemsSource="{Binding Path=ListeScenaristes}"
+                  DisplayMemberPath="Nom" 
+                  SelectedValuePath="Nom"
+                  SelectedValue="{Binding SelectedWriter}"/>
             <TextBox Grid.Column="1" Grid.Row="6" x:Name="synopsisFilm" Text="{Binding Synopsis}" Grid.ColumnSpan="4" Height="75" TextWrapping="NoWrap"/>
             <!-- COLONNE 2 -->
-            <TextBox Grid.Column="2" Grid.Row="4" x:Name="realPrenom" Text="{Binding PrenomRealisateur}" />
             <TextBox Grid.Column="2" Grid.Row="5" x:Name="scenarPrenom" Text="{Binding PrenomScenariste}" />
             <!-- COLONNE 3 -->
-            <TextBox Grid.Column="3" Grid.Row="4" x:Name="realDateNaiss" Text="{Binding DateNaissanceRealisateur}" />
             <TextBox Grid.Column="3" Grid.Row="5" x:Name="scenarDateNaiss" Text="{Binding DateNaissanceScenariste}" />
             <!-- COLONNE 4 -->
-            <TextBox Grid.Column="4" Grid.Row="4" x:Name="realNatio" Text="{Binding NationaliteRealisateur}" />
             <TextBox Grid.Column="4" Grid.Row="5" x:Name="scenarNatio" Text="{Binding NationaliteScenariste}" />
         </Grid>
         
         <Button Command="{Binding SaveMovieModifyCommand}" Content="MODIFIER" Width="75" Margin="0 20"/>
+        <Label Content="{Binding MessageValidationModify}" Margin="0 20" />
+        
+        <!-- TEST Combobox -->
+        <TextBlock Text="{Binding SelectedDirector}" />
+
+        <ComboBox ItemsSource="{Binding Path=ListeScenaristes}"
+                  DisplayMemberPath="Nom" 
+                  SelectedValuePath="Nom"
+                  SelectedValue="{Binding SelectedWriter}"/>
+
+        <TextBlock Text="{Binding SelectedWriter}" />
+
     </StackPanel>
 </Window>

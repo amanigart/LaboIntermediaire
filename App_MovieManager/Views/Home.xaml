@@ -16,7 +16,7 @@
             <!--<Image Source="../Assets/PandaMovie.jpg" Height="50"/>-->
             <iconPacks:PackIconMaterial Kind="MovieOpenSettingsOutline" Height="150" Width="150"
                                         VerticalAlignment="Center" HorizontalAlignment="Center"
-                                        Foreground="#343A4A" Margin="0 110 0 80"/>
+                                        Foreground="#343A4A" Margin="0 110 0 100"/>
             <TextBlock Text="Rechercher un film" FontWeight="SemiBold" FontSize="16"
                        HorizontalAlignment="Center" Margin="0 0 0 10"/>
 

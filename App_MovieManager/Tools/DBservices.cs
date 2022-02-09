@@ -12,7 +12,7 @@ namespace App_MovieManager.Tools
     {
         // ADRIEN : "Data Source=5233;Initial Catalog=MovieDB;User ID=adrien;Password=Test1234;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         // ERIC : "Data Source=5210;Initial Catalog=MovieDB;User ID=sa;Password=Test1234;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-        private string _connectionString = "Data Source=5233;Initial Catalog=MovieDB;User ID=adrien;Password=Test1234;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        private string _connectionString = "Data Source=5233;Initial Catalog=DBLabo;User ID=adrien;Password=Test1234;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
 
         public bool CheckIfUserExist(string email,string passwd)
@@ -40,7 +40,25 @@ namespace App_MovieManager.Tools
         public IEnumerable<Personne> GetListActors()
         {
             Connection cnx = new Connection(_connectionString);
-            string sql = "SELECT Id_Personne, Nom, Prenom FROM Personne"; // todo: retourne liste personnes => jointure : acteurs
+            string sql = "GetActorsList"; 
+            Command cmd = new Command(sql, true);
+
+            return cnx.ExecuteReader(cmd, Personne.Converter);
+        }
+
+        public IEnumerable<Personne> GetDirectorsList()
+        {
+            Connection cnx = new Connection(_connectionString);
+            string sql = "SELECT p.Id_Personne, p.Nom, p.Prenom FROM Personne p JOIN Film f ON (p.Id_Personne = f.Realisateur)";
+            Command cmd = new Command(sql);
+
+            return cnx.ExecuteReader(cmd, Personne.Converter);
+        }
+
+        public IEnumerable<Personne> GetWriterList()
+        {
+            Connection cnx = new Connection(_connectionString);
+            string sql = "SELECT p.Id_Personne, p.Nom, p.Prenom FROM Personne p JOIN Film f ON (p.Id_Personne = f.Scenariste)";
             Command cmd = new Command(sql);
 
             return cnx.ExecuteReader(cmd, Personne.Converter);
@@ -70,21 +88,51 @@ namespace App_MovieManager.Tools
         public IEnumerable<DetailFilm> GetMovieDetailList()
         {
             Connection cnx = new Connection(_connectionString);
-            string sql = "GetMovieDetail"
-                        ;
+            string sql = "GetMovieDetail";
             Command cmd = new Command(sql, true);
 
             return cnx.ExecuteReader(cmd, DetailFilm.Converter);
         }
 
 
-        // Fonctions d'UPDATE des tables
-        public int UpdateMovieTable(string titre)
+        // UPDATE des tables
+        public int UpdateGenreTable(string genre, int idGenre)
         {
             Connection cnx = new Connection(_connectionString);
-            string sql = "ModifyMovie";
+            string sql = "UpdateGenre";
             Command cmd = new Command(sql, true);
+            cmd.AddParameter("genre", genre);
+            cmd.AddParameter("id", idGenre);
+
+            return cnx.ExecuteNonQuery(cmd);
+        }
+
+        public int UpdatePersonneTable(int id, string nom, string prenom, string nationalite, DateTime dateNaissance)
+        {
+            Connection cnx = new Connection(_connectionString);
+            string sql = "UpdatePersonne";
+            Command cmd = new Command(sql, true);
+            cmd.AddParameter("id", id);
+            cmd.AddParameter("nom", nom);
+            cmd.AddParameter("prenom", prenom);
+            cmd.AddParameter("dateNaiss", dateNaissance);
+            cmd.AddParameter("nationalite", nationalite);
+
+            return cnx.ExecuteNonQuery(cmd);
+        }
+
+        public int UpdateFilmTable(int idFilm, int idRealisateur, int idScenariste, string titre, string synopsis, string duree, int dateSortie)
+        {
+            Connection cnx = new Connection(_connectionString);
+            string sql = "UpdateFilm";
+            Command cmd = new Command(sql, true);
+            cmd.AddParameter("idFilm", idFilm);
+            cmd.AddParameter("idRealisateur", idRealisateur);
+            cmd.AddParameter("idScenariste", idScenariste);
             cmd.AddParameter("titre", titre);
+            cmd.AddParameter("synopsis", synopsis);
+            cmd.AddParameter("duree", duree);
+            cmd.AddParameter("dateSortie", dateSortie);
 
             return cnx.ExecuteNonQuery(cmd);
         }

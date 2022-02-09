@@ -3,8 +3,27 @@
 
     <Style x:Key="logoutBtn" TargetType="{x:Type Button}">
         <Setter Property="Foreground" Value="Black" />
-        <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontSize" Value="11" />
         <Setter Property="FontFamily" Value="Helvetica" />
+        <Setter Property="Margin" Value="3 0 0 0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="Transparent" CornerRadius="4"
+                                                                      BorderThickness="1"
+                                                                      BorderBrush="Transparent">
+                        <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="Opacity" Value="1" />
+                <Setter Property="Foreground" Value="#1c73e8" />
+            </Trigger>
+        </Style.Triggers>
     </Style>
 
     <Style x:Key="navBtn" TargetType="{x:Type Button}">

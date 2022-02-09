@@ -47,7 +47,6 @@ namespace App_MovieManager.ViewModels
             {
                 _selectedItem = value;
                 RaisePropertyChanged(nameof(SelectedItem));
-                SelectedItem.ShowMovieDetail();
             }
         }
 

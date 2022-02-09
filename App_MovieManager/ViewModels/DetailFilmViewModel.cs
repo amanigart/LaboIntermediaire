@@ -15,13 +15,67 @@ namespace App_MovieManager.ViewModels
         public DetailFilmViewModel(DetailFilm film)
         {
             _currentMovie = film;
+            MessageValidationModify = "TEST";
+            ListeRealisateurs = new ObservableCollection<Personne>(_db.GetDirectorsList());
+            ListeScenaristes = new ObservableCollection<Personne>(_db.GetWriterList());
         }
 
         private DetailFilm _currentMovie;
         private DBservices _db = new DBservices();
 
+        private string _messageValidationModify;
         public string MessageErreur { get; set; }
+        public string MessageValidationModify
+        {
+            get => _messageValidationModify;
+            set
+            {
+                if (_messageValidationModify != value)
+                {
+                    _messageValidationModify = value;
+                    RaisePropertyChanged(nameof(MessageValidationModify));
+                }
+            }
+        }
 
+
+        // Liste Realisateurs
+        private ObservableCollection<Personne> _listeRealisateurs;
+        public ObservableCollection<Personne> ListeRealisateurs
+        {
+            get { return _listeRealisateurs; }
+            set { _listeRealisateurs = value; }
+        }
+        private string _selectedDirector;
+        public string SelectedDirector
+        {
+            get => _selectedDirector;
+            set
+            {
+                _selectedDirector = value;
+                RaisePropertyChanged(nameof(SelectedDirector));
+            }
+        }
+
+        // Liste Scenaristes
+        private ObservableCollection<Personne> _listeScenaristes;
+        public ObservableCollection<Personne> ListeScenaristes
+        {
+            get { return _listeScenaristes; }
+            set { _listeScenaristes = value; }
+        }
+        private string _selectedWriter;
+        public string SelectedWriter
+        {
+            get => _selectedWriter;
+            set
+            {
+                _selectedWriter = value;
+                RaisePropertyChanged(nameof(SelectedWriter));
+            }
+        }
+
+        // Propriétés du film courant
         public int IdFilm
         {
             get { return _currentMovie.IdFilm; }
@@ -36,6 +90,19 @@ namespace App_MovieManager.ViewModels
                 {
                     _currentMovie.Titre = value;
                     RaisePropertyChanged(nameof(Titre));
+                }
+            }
+        }
+
+        public int IdGenre
+        {
+            get => _currentMovie.IdGenre;
+            set
+            {
+                if (_currentMovie.IdGenre != value)
+                {
+                    _currentMovie.IdGenre = value;
+                    RaisePropertyChanged(nameof(IdGenre));
                 }
             }
         }
@@ -62,6 +129,19 @@ namespace App_MovieManager.ViewModels
                 {
                     _currentMovie.Duree = value;
                     RaisePropertyChanged(nameof(Duree));
+                }
+            }
+        }
+
+        public int IdRealisateur
+        {
+            get => _currentMovie.IdRealisateur;
+            set
+            {
+                if (_currentMovie.IdRealisateur != value)
+                {
+                    _currentMovie.IdRealisateur = value;
+                    RaisePropertyChanged(nameof(IdRealisateur));
                 }
             }
         }
@@ -119,6 +199,19 @@ namespace App_MovieManager.ViewModels
                 {
                     _currentMovie.NationaliteRealisateur = value;
                     RaisePropertyChanged(nameof(NationaliteRealisateur));
+                }
+            }
+        }
+
+        public int IdScenariste
+        {
+            get => _currentMovie.IdScenariste;
+            set
+            {
+                if (_currentMovie.IdScenariste != value)
+                {
+                    _currentMovie.IdScenariste = value;
+                    RaisePropertyChanged(nameof(IdScenariste));
                 }
             }
         }
@@ -207,7 +300,7 @@ namespace App_MovieManager.ViewModels
         }
 
 
-        // Commande Detail Film
+        // Commande vers Detail Film
         private CommandBase _showMovieDetailCommand;
         public CommandBase ShowMovieDetailCommand
         {
@@ -221,7 +314,7 @@ namespace App_MovieManager.ViewModels
         }
 
 
-        // Commande vers page modifier film
+        // Commande vers Modifier Film
         private CommandBase _showMovieModifyCommand;
         public CommandBase ShowMovieModifyCommand
         {
@@ -234,7 +327,7 @@ namespace App_MovieManager.ViewModels
             mw.Show();
         }
 
-        // Commande Enregistrer update film
+        // Commande Enregistrer Update Film
         private CommandBase _saveMovieModifyCommand;
         public CommandBase SaveMovieModifyCommand
         {
@@ -244,14 +337,13 @@ namespace App_MovieManager.ViewModels
         public void SaveMovieModify()
         {
             DBservices _db = new DBservices();
-            
-            int rows = _db.UpdateMovieTable(Titre);
-            //if (rows > 0)
-            //    MessageErreur = "La table Film a bient été mise à jour.";
-            //else
-            //    MessageErreur = "Erreur, la table Film n'a pas été mise à jour";
 
+            int rowsGenre = _db.UpdateGenreTable(NomGenre, IdGenre);
+            int rowsReal = _db.UpdatePersonneTable(IdRealisateur, NomRealisateur, PrenomRealisateur, NationaliteRealisateur, DateNaissanceRealisateur);
+            int rowsScen = _db.UpdatePersonneTable(IdScenariste, NomScenariste, PrenomScenariste, NationaliteRealisateur, DateNaissanceScenariste);
+            int rowsFilm = _db.UpdateFilmTable(IdFilm, IdRealisateur, IdScenariste, Titre, Synopsis, Duree, DateSortie);
 
+            MessageValidationModify = "Le film a bien été mis à jour";
         }
 
     }

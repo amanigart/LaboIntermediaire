@@ -14,4 +14,8 @@
     <ProjectReference Include="..\AdoToolbox\AdoToolbox.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controls\" />
+  </ItemGroup>
+
 </Project>

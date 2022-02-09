@@ -36,11 +36,10 @@
 
         <!-- AFFICHAGE DATAS -->
         <DataGrid ItemsSource="{Binding ListeActeur}"
-                      Style="{StaticResource dgStyleTheme}"
-                      AutoGenerateColumns="False"
-                      ScrollViewer.CanContentScroll="True" 
-                      ScrollViewer.VerticalScrollBarVisibility="Auto"
-                      Margin="10 0 0 0">
+                  Style="{StaticResource dgStyleTheme}"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True"   
+                  Margin="10 0 0 0">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding IdPersonne}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Nom" Binding="{Binding Nom}"></DataGridTextColumn>

@@ -1,5 +1,5 @@
 ﻿CREATE PROCEDURE ModifyMovie
-	@titre nvarchar(50)
+	@titre nvarchar(120)
 AS
 BEGIN
 	UPDATE Film SET Titre = @titre
