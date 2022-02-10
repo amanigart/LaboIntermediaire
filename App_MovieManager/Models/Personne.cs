@@ -32,7 +32,8 @@ namespace App_MovieManager.Models
                 IdPersonne = (int)reader["Id_Personne"],
                 Nom = (string)reader["Nom"],
                 Prenom = (string)reader["Prenom"],
-                Nationalite = (string)reader["Nationalite"]
+                Nationalite = (string)reader["Nationalite"],
+                DateNaissance = (DateTime)reader["DateNaissance"]
             };
         }
     }

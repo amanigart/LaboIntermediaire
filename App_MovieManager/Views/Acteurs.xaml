@@ -44,6 +44,7 @@
                 <DataGridTextColumn Header="ID" Binding="{Binding IdPersonne}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Nom" Binding="{Binding Nom}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Prenom" Binding="{Binding Prenom}"></DataGridTextColumn>
+                <!--<DataGridTextColumn Header="Date Naissance" Binding="{Binding DateNaissance}"></DataGridTextColumn>-->
                 <DataGridTextColumn Header="Nationalité" Binding="{Binding Nationalite}"></DataGridTextColumn>
                 <DataGridTemplateColumn Header="Détails">
                     <DataGridTemplateColumn.CellTemplate>
