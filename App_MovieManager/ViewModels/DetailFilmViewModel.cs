@@ -18,6 +18,7 @@ namespace App_MovieManager.ViewModels
             MessageValidationModify = "TEST";
             ListeRealisateurs = new ObservableCollection<Personne>(_db.GetDirectorsList());
             ListeScenaristes = new ObservableCollection<Personne>(_db.GetWriterList());
+            User = Session.CurrentUser;
         }
 
         private DetailFilm _currentMovie;
@@ -37,6 +38,9 @@ namespace App_MovieManager.ViewModels
                 }
             }
         }
+
+        // Session User
+        public Utilisateur User { get; set; }
 
 
         // Liste Realisateurs
@@ -299,6 +303,19 @@ namespace App_MovieManager.ViewModels
             }
         }
 
+        public string Affiche
+        {
+            get { return _currentMovie.Affiche; }
+            set
+            {
+                if (_currentMovie.Affiche != value)
+                {
+                    _currentMovie.Affiche = value;
+                    RaisePropertyChanged(nameof(Affiche));
+                }
+            }
+        }
+
 
         // Commande vers Detail Film
         private CommandBase _showMovieDetailCommand;
@@ -336,14 +353,23 @@ namespace App_MovieManager.ViewModels
 
         public void SaveMovieModify()
         {
-            DBservices _db = new DBservices();
-
             int rowsGenre = _db.UpdateGenreTable(NomGenre, IdGenre);
             int rowsReal = _db.UpdatePersonneTable(IdRealisateur, NomRealisateur, PrenomRealisateur, NationaliteRealisateur, DateNaissanceRealisateur);
             int rowsScen = _db.UpdatePersonneTable(IdScenariste, NomScenariste, PrenomScenariste, NationaliteRealisateur, DateNaissanceScenariste);
             int rowsFilm = _db.UpdateFilmTable(IdFilm, IdRealisateur, IdScenariste, Titre, Synopsis, Duree, DateSortie);
 
             MessageValidationModify = "Le film a bien été mis à jour";
+        }
+
+        // Commande Add Favori
+        private CommandBase _addFavCommand;
+        public CommandBase AddFavCommand
+        {
+            get { return _addFavCommand ?? (_addFavCommand = new CommandBase(AddFavori)); }
+        }
+        public void AddFavori()
+        {
+            int rows = _db.AddMovieToCollection(IdFilm, User.IdUser);
         }
 
     }

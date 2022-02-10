@@ -26,6 +26,7 @@ namespace App_MovieManager.Models
         public string Synopsis { get; set; }
         public int AnneeSortie { get; set; }
         public string Duree { get; set; }
+        public string Affiche { get; set; }
         //public Dictionary<string, string> Casting { get; set; }
 
         public Dictionary<int, string> ListeRealisateurs { get; set; }
@@ -50,7 +51,8 @@ namespace App_MovieManager.Models
                 NationaliteScenariste=(String)reader["nationaliteScenariste"],
                 Synopsis = (string)reader["Synopsis"],
                 AnneeSortie = (int)reader["DateSortie"],
-                Duree = (string)reader["Duree"]
+                Duree = (string)reader["Duree"],
+                Affiche = (string)reader["Affiche"]
             };
         }
     }

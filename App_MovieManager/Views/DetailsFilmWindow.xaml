@@ -49,10 +49,10 @@
                         <ColumnDefinition Width="1*" />
                         <ColumnDefinition Width="1*" />
                     </Grid.ColumnDefinitions>
-                    <Image Grid.Column="0" />
+                    <Image Source="{Binding Affiche}" Grid.Column="0" Height="600" HorizontalAlignment="Left" Margin="-25 35 0 0"/>
                     <!-- GRID : INFOS DE BASE -->
-                    <StackPanel Grid.Column="1">
-                        <Label Content="{Binding Titre}" FontSize="25"/>
+                    <StackPanel Grid.Column="1" Margin="0 25 100 0">
+                        <Label Content="{Binding Titre}" FontSize="50" FontWeight="SemiBold" Margin="0 0 0 20 "/>
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto"/>
@@ -69,40 +69,40 @@
                             <TextBlock Grid.Column="0" Grid.Row="0"  
                                        Text="Réalisateur" Style="{StaticResource DetailsFilmItemsCategory}" />
                             <TextBlock Grid.Column="0" Grid.Row="1"  
-                                       Text="Scénariste :" Style="{StaticResource DetailsFilmItemsCategory}"/>
+                                       Text="Scénariste" Style="{StaticResource DetailsFilmItemsCategory}"/>
                             <TextBlock Grid.Column="0" Grid.Row="2"  
-                                       Text="Genre :" Style="{StaticResource DetailsFilmItemsCategory}"/>
+                                       Text="Genre" Style="{StaticResource DetailsFilmItemsCategory}"/>
                             <TextBlock Grid.Column="0" Grid.Row="3"  
-                                       Text="Année :" Style="{StaticResource DetailsFilmItemsCategory}"/>
+                                       Text="Année" Style="{StaticResource DetailsFilmItemsCategory}"/>
                             <TextBlock Grid.Column="0" Grid.Row="4"  
-                                       Text="Durée :" Style="{StaticResource DetailsFilmItemsCategory}"/>
+                                       Text="Durée" Style="{StaticResource DetailsFilmItemsCategory}"/>
                             
                             <Label Grid.Column="1" Grid.Row="0" 
                                    Content="{Binding Realisateur}" Style="{StaticResource DetailsFilmItemsValeurs}"/>
                             <Label Grid.Column="1" Grid.Row="1" 
-                                   Content="{Binding Scenariste}"  Style="{StaticResource DetailsFilmItemsValeurs}"/>
+                                   Content="{Binding Scenariste}" Style="{StaticResource DetailsFilmItemsValeurs}"/>
                             <Label Grid.Column="1" Grid.Row="2" 
-                                   Content="{Binding NomGenre}"  Style="{StaticResource DetailsFilmItemsValeurs}"/>
+                                   Content="{Binding NomGenre}" Style="{StaticResource DetailsFilmItemsValeurs}"/>
                             <Label Grid.Column="1" Grid.Row="3" 
-                                   Content="{Binding DateSortie}"  Style="{StaticResource DetailsFilmItemsValeurs}"/>
+                                   Content="{Binding DateSortie}" Style="{StaticResource DetailsFilmItemsValeurs}"/>
                             <Label Grid.Column="1" Grid.Row="4" 
-                                   Content="{Binding Duree}"  Style="{StaticResource DetailsFilmItemsValeurs}"/>
+                                   Content="{Binding Duree}" Style="{StaticResource DetailsFilmItemsValeurs}"/>
                         </Grid>
                         <!-- SYNOPSIS -->
-                        <Border BorderBrush="#1c73e8" BorderThickness="1"/>
-                        <TextBlock Text="SYNOPSIS" />
-                        <TextBlock Text="{Binding Synopsis}" />
-                        <Border BorderBrush="#1c73e8" BorderThickness="1"/>
+                        <Border BorderBrush="#1c73e8" BorderThickness="1" Margin="0 20 0 20"/>
+                        <TextBlock Text="SYNOPSIS" FontWeight="SemiBold" FontSize="18" Margin="0 0 0 10"/>
+                        <TextBlock Text="{Binding Synopsis}" TextWrapping="Wrap" FontSize="14" FontFamily="Helvetica"/>
+                        <Border BorderBrush="#1c73e8" BorderThickness="1" Margin="0 20 0 20"/>
                         <!-- CASTING -->
                         <StackPanel>
-                            <TextBlock Text="CASTING" />
+                            <TextBlock Text="CASTING" FontWeight="SemiBold" FontSize="18" Margin="0 0 0 10"/>
                             <DataGrid CanUserAddRows="False"
                                       CanUserDeleteRows="False"
                                       IsReadOnly="True"
                                       AutoGenerateColumns="False"
                                       Style="{StaticResource dgStyleTheme}">
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="Prenom+Nom" />
+                                    <DataGridTextColumn Header="Acteur" />
                                     <DataGridTextColumn Header="Role" />
                                 </DataGrid.Columns>
                             </DataGrid>

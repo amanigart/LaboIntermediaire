@@ -7,27 +7,28 @@
              xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
              mc:Ignorable="d" 
              d:DesignHeight="685" d:DesignWidth="1035"
-             DataContext="{StaticResource MovieList}">
+             DataContext="{StaticResource HomePage}">
     
     <StackPanel Background="White">
 
         <StackPanel>
             <!--<TextBlock Style="{StaticResource TitrePage}" Text="Bienvenue !" />-->
             <!--<Image Source="../Assets/PandaMovie.jpg" Height="50"/>-->
-            <iconPacks:PackIconMaterial Kind="MovieOpenSettingsOutline" Height="150" Width="150"
+            <iconPacks:PackIconMaterial Kind="MovieOpenSettingsOutline" Height="120" Width="120"
                                         VerticalAlignment="Center" HorizontalAlignment="Center"
-                                        Foreground="#343A4A" Margin="0 110 0 100"/>
+                                        Foreground="#343A4A" Margin="0 130 0 90"/>
             <TextBlock Text="Rechercher un film" FontWeight="SemiBold" FontSize="16"
                        HorizontalAlignment="Center" Margin="0 0 0 10"/>
 
-            <TextBox Name="searchMovieBox" Text="" Width="350" Height="25" KeyDown="TextBlock_KeyDown"/>
+            <TextBox Name="searchMovieBox" Text="{Binding Query}"  Width="350" Height="25" />
+            <Button Grid.Column="0" Command="{Binding SearchCommand}" Content="Chercher" Width="100" Height="25" Margin="10 0 0 0"/>
 
             <!--<Grid HorizontalAlignment="Center" Margin="0 10 0 0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-                <Button Grid.Column="0" Content="Chercher dans les films" Width="100" Height="25" Margin="10 0 0 0"/>
+                <Button Grid.Column="0" Command="{Binding SearchCommand}" Content="Chercher dans les films" Width="100" Height="25" Margin="10 0 0 0"/>
                 <Button Grid.Column="1" Content="Chercher dans ma collection" Width="120" Height="25" Margin="10 0 0 0"/>
             </Grid>-->
 

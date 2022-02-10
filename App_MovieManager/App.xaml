@@ -11,12 +11,14 @@
             <vm:AppViewModel x:Key="App" />
             <vm:RegisterViewModel x:Key="Register" />
             <vm:LoginViewModel x:Key="Home" />
+            <vm:HomeViewModel x:Key="HomePage" />
             <vm:ListeFilmsViewModel x:Key="MovieList" />
             <vm:ListeActeursViewModel x:Key="ActorList" />
             <vm:DetailFilmViewModel x:Key="DetailFilm" />
             <vm:ModifierFilmViewModel x:Key="Modify" />
             <vm:CreerFilmViewModel x:Key="CreatelFilm" />
             <vm:ModifierFilmViewModel x:Key="UpdateFilm" />
+            <vm:CollectionViewModel x:Key="Collection" />
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Ressources/ButtonTheme.xaml" />
                 <ResourceDictionary Source="Ressources/ButtonWindowHeader.xaml" />

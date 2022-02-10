@@ -10,28 +10,29 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace App_MovieManager.Views
 {
     /// <summary>
-    /// Logique d'interaction pour Home.xaml
+    /// Logique d'interaction pour QueryResultsWindow.xaml
     /// </summary>
-    public partial class Home : UserControl
+    public partial class QueryResultsWindow : Window
     {
-        public Home()
+        public QueryResultsWindow()
         {
             InitializeComponent();
         }
 
-        private void TextBlock_KeyDown(object sender, KeyEventArgs e)
+        private void DragWindow(object sender, MouseButtonEventArgs e)
         {
-            if (e.Key == Key.Return)
-            {
-                QueryResultsWindow rw = new QueryResultsWindow();
-                rw.Show();
-            }
+            if (e.LeftButton == MouseButtonState.Pressed)
+                DragMove();
+        }
+
+        private void btn_Minimize_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
         }
     }
 }

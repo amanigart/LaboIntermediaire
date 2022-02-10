@@ -17,7 +17,8 @@ SELECT f.Id_Film,
 	   s.Nationalite AS nationaliteScenariste,
 	   f.Synopsis, 
 	   f.DateSortie, 
-	   f.Duree
+	   f.Duree,
+	   f.Affiche
 FROM Film f JOIN Genre g ON(f.Id_Genre = g.Id_Genre) 
 		    JOIN Personne r ON(f.Realisateur = r.Id_Personne) 
 			JOIN Personne s ON(f.Scenariste = s.Id_Personne)

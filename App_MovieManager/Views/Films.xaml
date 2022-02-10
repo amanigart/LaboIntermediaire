@@ -53,14 +53,21 @@
                 <DataGridTemplateColumn Header="Détails">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Command="{Binding ShowMovieDetailCommand}" Content="DETAILS" Width="60" Height="20" FontSize="10" />
+                            <Button Command="{Binding ShowMovieDetailCommand}" Content="Détails" Width="60" Height="20" FontSize="10" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
                 <DataGridTemplateColumn Header="Modifier">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Command="{Binding ShowMovieModifyCommand}" Content="MODIFIER" Width="60" Height="20" FontSize="10" />
+                            <Button Command="{Binding ShowMovieModifyCommand}" Content="Modifier" Width="60" Height="20" FontSize="10" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Favori">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Command="{Binding AddFavCommand}" Content="Collection" Width="60" Height="20" FontSize="10" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

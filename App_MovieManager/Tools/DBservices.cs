@@ -151,28 +151,34 @@ namespace App_MovieManager.Tools
             return cnx.ExecuteNonQuery(cmd);
         }
 
+        // Collection
+        public int AddMovieToCollection (int idFilm, int idUser)
+        {
+            Connection cnx = new Connection(_connectionString);
+            string sql = "AddCollectionItem";
+            Command cmd = new Command(sql, true);
+            cmd.AddParameter("idFilm", idFilm);
+            cmd.AddParameter("idUser", idUser);
+            return cnx.ExecuteNonQuery(cmd);
+        }
 
+        public IEnumerable<ViewCollection> GetCollection(int idUser)
+        {
+            Connection cnx = new Connection(_connectionString);
+            string sql = "DisplayCollection";
+            Command cmd = new Command(sql, true);
+            cmd.AddParameter("idUser", idUser);
+            return cnx.ExecuteReader(cmd, ViewCollection.Converter);
+        }
 
+        public IEnumerable<DetailFilm> SearchMovielList(string query)
+        {
+            Connection cnx = new Connection(_connectionString);
+            string sql = "SearchMovies";
+            Command cmd = new Command(sql, true);
+            cmd.AddParameter("query", query);
 
-
-        //public object UpdateTablePersonne()
-        //{
-        //    // va renvoyer l'id de lapersonne
-        //}
-
-        //public object UpdateTableGenre()
-        //{
-        //    // va renvoyer l'id du genre
-        //}
-
-        //public object UpdateTableFilm(int idRealisateur, int idScenariste, int idGenre)
-        //{
-        //    // va mettre la table film à jour
-        //}
-
-        //public object UpdateTableCasting(List<object> PersonneRoleFilm)
-        //{
-        //    // va mettre à jour la table casting 
-        //}
+            return cnx.ExecuteReader(cmd, DetailFilm.Converter);
+        }
     }
 }

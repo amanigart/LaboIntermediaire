@@ -145,10 +145,22 @@
     <Build Include="dbo\Stored Procedures\UpdateFilm.sql" />
     <Build Include="dbo\Functions\CheckIfGenreExist.sql" />
     <Build Include="dbo\Collection_View.sql" />
+    <Build Include="dbo\Stored Procedures\AddCollectionItem.sql" />
+    <Build Include="dbo\Stored Procedures\SearchMovies.sql" />
+    <Build Include="dbo\Stored Procedures\DisplayCollection.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="MovieDB.publish.xml" />
     <None Include="MovieDB_1.publish.xml" />
     <None Include="MovieDB_2.publish.xml" />
+    <None Include="MovieDB_3.publish.xml" />
+    <None Include="MovieDB_4.publish.xml" />
+    <None Include="MovieDB_5.publish.xml" />
+    <None Include="MovieDB_6.publish.xml" />
+    <None Include="MovieDB_7.publish.xml" />
+    <None Include="MovieDB_8.publish.xml" />
+    <None Include="MovieDB_9.publish.xml" />
+    <None Include="MovieDB_10.publish.xml" />
+    <None Include="MovieDB_11.publish.xml" />
   </ItemGroup>
 </Project>

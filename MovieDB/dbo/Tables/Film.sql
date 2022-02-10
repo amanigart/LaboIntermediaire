@@ -7,6 +7,7 @@
     [Synopsis]    NVARCHAR (500) NOT NULL,
     [Duree]       NVARCHAR (50)  NOT NULL,
     [DateSortie]  INT            NOT NULL,
+    [Affiche]     NVARCHAR(MAX),
     CONSTRAINT [FK_Genre] FOREIGN KEY (Id_Genre) REFERENCES Genre (Id_Genre),
     CONSTRAINT [FK_Realisateur] FOREIGN KEY (Realisateur) REFERENCES Personne (Id_Personne),
     CONSTRAINT [FK_Scenariste] FOREIGN KEY (Scenariste) REFERENCES Personne (Id_Personne)

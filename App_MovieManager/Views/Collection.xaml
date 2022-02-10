@@ -6,8 +6,43 @@
              xmlns:local="clr-namespace:App_MovieManager.Views"
              xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
              mc:Ignorable="d" 
-             d:DesignHeight="685" d:DesignWidth="1035">
-    <Grid>
-        <TextBlock Text="COLLECTION" />
-    </Grid>
+             d:DesignHeight="685" d:DesignWidth="1035" DataContext="{StaticResource Collection}">
+    <StackPanel>
+        <!-- HEADER : BARRE D'OPTIONS -->
+        <Grid Margin="12 10 10 10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="20" />
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="20" />
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="85"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Text="Ma collection" FontSize="20" FontWeight="SemiBold" VerticalAlignment="Center" />
+        </Grid>
+        <!-- DATAGRID -->
+        <DataGrid ItemsSource="{Binding CollectionList}"
+                  x:Name="DatagridCollection"
+                  Style="{StaticResource dgStyleTheme}"
+                  Margin="10 0 0 0"
+                  IsReadOnly="True"
+                  AutoGenerateColumns="False">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Titre" Binding="{Binding Titre}" />
+                <DataGridTextColumn Header="Réalisateur" Binding="{Binding Realisateur}" MinWidth="100" />
+                <DataGridTextColumn Header="Duree" Binding="{Binding Duree}" MinWidth="100" />
+                <DataGridTextColumn Header="Rating" Binding="{Binding Rating}" MinWidth="150" />
+                <DataGridTemplateColumn Header="Détails">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Favori" Width="60" Height="20" FontSize="10" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </StackPanel>
 </UserControl>
