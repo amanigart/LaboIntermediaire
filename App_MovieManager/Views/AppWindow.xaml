@@ -96,7 +96,7 @@
                             <Button Content="Corbeille" Click="ChangePage" Style="{StaticResource navBtn}" Margin="0 -1 0 0"/>
                             <Button Content="Films" Click="ChangePage" Style="{StaticResource navBtn}" Margin="0 15 0 0"/>
                             <Button Content="Acteurs" Click="ChangePage" Style="{StaticResource navBtn}"/>
-                            <Button Content="Créer un film" Style="{StaticResource navBtn}" Margin="0 -1 0 0"/>
+                            <Button Content="Créer un film" Click="ChangePage" Style="{StaticResource navBtn}" Margin="0 -1 0 0"/>
                             <!--<Button Content="Modifier un film" Style="{StaticResource navBtn}"/>-->
                         </StackPanel>
                     </Grid>

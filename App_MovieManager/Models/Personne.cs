@@ -24,5 +24,16 @@ namespace App_MovieManager.Models
                 Prenom = (string)reader["Prenom"]
             };
         }
+
+        public static Personne Converter2(SqlDataReader reader)
+        {
+            return new Personne
+            {
+                IdPersonne = (int)reader["Id_Personne"],
+                Nom = (string)reader["Nom"],
+                Prenom = (string)reader["Prenom"],
+                Nationalite = (string)reader["Nationalite"]
+            };
+        }
     }
 }

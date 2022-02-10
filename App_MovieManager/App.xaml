@@ -28,6 +28,7 @@
                 <ResourceDictionary Source="Ressources/NavItems.xaml" />
                 <ResourceDictionary Source="Ressources/PageTitle.xaml" />
                 <ResourceDictionary Source="Ressources/DataGridTheme.xaml" />
+                <ResourceDictionary Source="Ressources/CreateMovieTheme.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
 

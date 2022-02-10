@@ -12,7 +12,7 @@ namespace App_MovieManager.Tools
     {
         // ADRIEN : "Data Source=5233;Initial Catalog=MovieDB;User ID=adrien;Password=Test1234;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         // ERIC : "Data Source=5210;Initial Catalog=MovieDB;User ID=sa;Password=Test1234;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-        private string _connectionString = "Data Source=5233;Initial Catalog=DBLabo;User ID=adrien;Password=Test1234;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        private string _connectionString = "Data Source=5233;Initial Catalog=DBLabo;User ID=adrien;Password=Test1234;";
 
 
         public bool CheckIfUserExist(string email,string passwd)
@@ -57,7 +57,7 @@ namespace App_MovieManager.Tools
             string sql = "GetActorsList"; 
             Command cmd = new Command(sql, true);
 
-            return cnx.ExecuteReader(cmd, Personne.Converter);
+            return cnx.ExecuteReader(cmd, Personne.Converter2);
         }
 
         public IEnumerable<Personne> GetDirectorsList()

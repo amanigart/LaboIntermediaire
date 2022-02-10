@@ -13,11 +13,20 @@ namespace App_MovieManager.ViewModels
     {
         public AppViewModel()
         {
-            User = Session.CurrentUser;
+            User = Session.CurrentUser;  //todo: Raise property ?
         }
-        
+
         // Session User
-        public Utilisateur User { get; set; }
+        private Utilisateur _user;
+        public Utilisateur User
+        {
+            get => _user;
+            set
+            {
+                _user = value;
+                RaisePropertyChanged(nameof(User));
+            }
+        }
 
 
         // Logout Command

@@ -30,14 +30,21 @@
                   AutoGenerateColumns="False">
 
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Titre" Binding="{Binding Titre}" />
-                <DataGridTextColumn Header="Réalisateur" Binding="{Binding Realisateur}" MinWidth="100" />
+                <DataGridTextColumn Header="Titre" Binding="{Binding Titre}" MinWidth="100"/>
+                <DataGridTextColumn Header="Réalisateur" Binding="{Binding Realisateur}" MinWidth="150" />
                 <DataGridTextColumn Header="Duree" Binding="{Binding Duree}" MinWidth="100" />
-                <DataGridTextColumn Header="Rating" Binding="{Binding Rating}" MinWidth="150" />
-                <DataGridTemplateColumn Header="Détails">
+                <DataGridTextColumn Header="Rating" Binding="{Binding Rating}" MinWidth="50" />
+                <DataGridTemplateColumn Header="Ajouter">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Button Content="Favori" Width="60" Height="20" FontSize="10" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Supprimer">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Corbeille" Width="60" Height="20" FontSize="10" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

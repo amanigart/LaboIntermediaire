@@ -23,5 +23,20 @@ namespace App_MovieManager.Views
         {
             InitializeComponent();
         }
+        private void DragWindow(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+                DragMove();
+        }
+
+        private void btn_Minimize_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+
+        private void btn_Close_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }
